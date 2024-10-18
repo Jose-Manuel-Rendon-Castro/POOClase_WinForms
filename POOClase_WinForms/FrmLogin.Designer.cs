@@ -98,6 +98,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Iniciar Sesion";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lblLogin_Titulo
             // 
