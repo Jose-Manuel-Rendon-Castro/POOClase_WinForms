@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             pctbLogin = new PictureBox();
             lblLogin_Usuario = new Label();
             lblLogin_Contraseña = new Label();
@@ -43,7 +42,7 @@
             // 
             pctbLogin.BackColor = Color.AntiqueWhite;
             pctbLogin.BackgroundImageLayout = ImageLayout.None;
-            pctbLogin.Image = (Image)resources.GetObject("pctbLogin.Image");
+            pctbLogin.Image = Properties.Resources.wtf_what_the_fuck;
             pctbLogin.Location = new Point(649, 57);
             pctbLogin.Name = "pctbLogin";
             pctbLogin.Size = new Size(569, 527);

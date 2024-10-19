@@ -59,5 +59,15 @@ namespace POOClase_WinForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wtf_what_the_fuck {
+            get {
+                object obj = ResourceManager.GetObject("wtf-what-the-fuck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
