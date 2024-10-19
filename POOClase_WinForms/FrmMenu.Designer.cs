@@ -30,6 +30,7 @@
         {
             lblMenu_Bienvenido = new Label();
             btnAgregarProducto = new Button();
+            btnMenu_Buscar = new Button();
             SuspendLayout();
             // 
             // lblMenu_Bienvenido
@@ -53,12 +54,26 @@
             btnAgregarProducto.TabIndex = 1;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = false;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
+            // 
+            // btnMenu_Buscar
+            // 
+            btnMenu_Buscar.BackColor = SystemColors.ActiveCaption;
+            btnMenu_Buscar.Font = new Font("Segoe UI Symbol", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu_Buscar.Location = new Point(12, 155);
+            btnMenu_Buscar.Name = "btnMenu_Buscar";
+            btnMenu_Buscar.Size = new Size(283, 68);
+            btnMenu_Buscar.TabIndex = 2;
+            btnMenu_Buscar.Text = "Buscar info de producto";
+            btnMenu_Buscar.UseVisualStyleBackColor = false;
+            btnMenu_Buscar.Click += btnMenu_Buscar_Click;
             // 
             // FrmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnMenu_Buscar);
             Controls.Add(btnAgregarProducto);
             Controls.Add(lblMenu_Bienvenido);
             Name = "FrmMenu";
@@ -72,5 +87,6 @@
 
         private Label lblMenu_Bienvenido;
         private Button btnAgregarProducto;
+        private Button btnMenu_Buscar;
     }
 }

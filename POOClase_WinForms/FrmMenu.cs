@@ -13,9 +13,11 @@ namespace POOClase_WinForms
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu(Usuario usuario)
+        private List<Producto> listaProductos;
+        public FrmMenu(Usuario usuario, List<Producto> listaProductos)
         {
             InitializeComponent();
+            this.listaProductos = listaProductos;
             lblMenu_Bienvenido.Text = $"Bienvenido {usuario.GetUsername()}";
         }
 
@@ -27,6 +29,18 @@ namespace POOClase_WinForms
         private void FrmMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            FrmAgregarProducto frmAgregarProducto = new FrmAgregarProducto(listaProductos);
+            frmAgregarProducto.ShowDialog();
+        }
+
+        private void btnMenu_Buscar_Click(object sender, EventArgs e)
+        {
+            FrmBuscarProducto frmBuscarProducto = new FrmBuscarProducto(listaProductos);
+            frmBuscarProducto.ShowDialog();
         }
     }
 }

@@ -1,7 +1,11 @@
+using POOClase_WinForms.Clases;
+using System.Security.Cryptography.X509Certificates;
+
 namespace POOClase_WinForms
 {
-    internal static class Program
+    internal class Program
     {
+        public static List<Producto> listaProductos = new List<Producto>();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -9,9 +13,9 @@ namespace POOClase_WinForms
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // see https://aka.ms/applicationconfiguration.            
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmLogin(listaProductos));
         }
     }
 }
