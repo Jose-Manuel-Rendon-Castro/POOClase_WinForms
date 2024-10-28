@@ -1,34 +1,17 @@
-﻿using POOClase_WinForms.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms
 {
     public partial class FrmMenu : Form
     {
         private List<Producto> listaProductos;
-        public FrmMenu(Usuario usuario, List<Producto> listaProductos)
+        private FrmLogin frmLogin;
+        public FrmMenu(FrmLogin frmLogin, Usuario usuario, List<Producto> listaProductos)
         {
             InitializeComponent();
             this.listaProductos = listaProductos;
+            this.frmLogin = frmLogin;
             lblMenu_Bienvenido.Text = $"Bienvenido {usuario.GetUsername()}";
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmMenu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
@@ -41,6 +24,12 @@ namespace POOClase_WinForms
         {
             FrmBuscarProducto frmBuscarProducto = new FrmBuscarProducto(listaProductos);
             frmBuscarProducto.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+            frmLogin.Show();
         }
     }
 }

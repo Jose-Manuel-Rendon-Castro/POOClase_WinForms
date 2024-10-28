@@ -31,6 +31,7 @@
             lblMenu_Bienvenido = new Label();
             btnAgregarProducto = new Button();
             btnMenu_Buscar = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lblMenu_Bienvenido
@@ -42,7 +43,6 @@
             lblMenu_Bienvenido.Size = new Size(74, 36);
             lblMenu_Bienvenido.TabIndex = 0;
             lblMenu_Bienvenido.Text = "label";
-            lblMenu_Bienvenido.Click += label1_Click;
             // 
             // btnAgregarProducto
             // 
@@ -68,17 +68,29 @@
             btnMenu_Buscar.UseVisualStyleBackColor = false;
             btnMenu_Buscar.Click += btnMenu_Buscar_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.IndianRed;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(590, 17);
+            button1.Name = "button1";
+            button1.Size = new Size(198, 39);
+            button1.TabIndex = 3;
+            button1.Text = "Cerrar sesión";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FrmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(btnMenu_Buscar);
             Controls.Add(btnAgregarProducto);
             Controls.Add(lblMenu_Bienvenido);
             Name = "FrmMenu";
             Text = "Menu";
-            Load += FrmMenu_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -88,5 +100,6 @@
         private Label lblMenu_Bienvenido;
         private Button btnAgregarProducto;
         private Button btnMenu_Buscar;
+        private Button button1;
     }
 }

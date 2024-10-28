@@ -1,4 +1,4 @@
-﻿using POOClase_WinForms.Clases;
+﻿using POOClase_WinForms.Modelos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -1,13 +1,13 @@
 ﻿using System.Linq.Expressions;
 
-namespace POOClase_WinForms.Clases
+namespace POOClase_WinForms.Modelos
 {
     public class Producto
     {
         private int _id;
         private String _nombre;
         private decimal _precio;
-        private int _codigoBarra;
+        private long _codigoBarra;
         private String _categoria;
 
         public int id
@@ -25,7 +25,7 @@ namespace POOClase_WinForms.Clases
             get { return _precio; }
             set { _precio = value; }
         }        
-        public int codigoBarra
+        public long codigoBarra
         {
             get { return _codigoBarra; }
             set { _codigoBarra = value; }
@@ -42,7 +42,18 @@ namespace POOClase_WinForms.Clases
             {
                 Producto producto = listaProducto.Find(p => p.id == _buscarId);
 
-                label.Text = $"ID: {producto.id}\nNombre de producto: {producto.nombre}\nPrecio: ${producto.precio}\nCódigo de barra: {producto.codigoBarra}\nCategoría: {producto.categoria}";
+                if (producto != null)
+                {
+                    label.Text = $"ID: {producto.id}\nNombre de producto: {producto.nombre}\nPrecio: ${producto.precio}\nCódigo de barra: {producto.codigoBarra}\nCategoría: {producto.categoria}";
+                }
+                else
+                {
+                    label.Text = "No existe";
+                }
+            }
+            else
+            {
+                label.Text = "Ingrese un id numerico porfavor";
             }
         }
     }

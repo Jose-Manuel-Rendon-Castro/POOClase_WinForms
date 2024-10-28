@@ -1,13 +1,4 @@
-﻿using POOClase_WinForms.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms
 {
@@ -29,7 +20,7 @@ namespace POOClase_WinForms
                 if (precio < 1) return false;
             }
             else MessageBox.Show("Solo numeros");
-            if (int.TryParse(txtBAgregarProducto_Codigo.Text, out int codigoBarra))
+            if (long.TryParse(txtBAgregarProducto_Codigo.Text, out long codigoBarra))
             {
                 if (codigoBarra < 1) return false;
             }
@@ -52,7 +43,7 @@ namespace POOClase_WinForms
                 producto.id = listaProductos.Count + 1;
                 producto.nombre = txtBAgregarProducto_Nombre.Text;
                 producto.precio = int.Parse(txtBAgregarProducto_Precio.Text);
-                producto.codigoBarra = int.Parse(txtBAgregarProducto_Codigo.Text);
+                producto.codigoBarra = long.Parse(txtBAgregarProducto_Codigo.Text);
                 producto.categoria = txtBAgregarProducto_Categoria.Text;
 
                 listaProductos.Add(producto);

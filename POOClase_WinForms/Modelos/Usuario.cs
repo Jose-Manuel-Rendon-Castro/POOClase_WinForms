@@ -1,6 +1,6 @@
 ﻿using System.Drawing.Printing;
 
-namespace POOClase_WinForms.Clases
+namespace POOClase_WinForms.Modelos
 {
     public class Usuario
     {

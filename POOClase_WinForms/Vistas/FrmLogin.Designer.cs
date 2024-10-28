@@ -35,6 +35,7 @@
             txtBLogin_Contraseña = new TextBox();
             btnLogin = new Button();
             lblLogin_Titulo = new Label();
+            btnLogin_Salir = new Button();
             ((System.ComponentModel.ISupportInitialize)pctbLogin).BeginInit();
             SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // 
             btnLogin.BackColor = SystemColors.InactiveCaption;
             btnLogin.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(184, 545);
+            btnLogin.Location = new Point(21, 545);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(242, 39);
             btnLogin.TabIndex = 5;
@@ -110,11 +111,24 @@
             lblLogin_Titulo.Text = "Práctica POO";
             lblLogin_Titulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnLogin_Salir
+            // 
+            btnLogin_Salir.BackColor = SystemColors.InactiveCaption;
+            btnLogin_Salir.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin_Salir.Location = new Point(331, 545);
+            btnLogin_Salir.Name = "btnLogin_Salir";
+            btnLogin_Salir.Size = new Size(242, 39);
+            btnLogin_Salir.TabIndex = 7;
+            btnLogin_Salir.Text = "Salir";
+            btnLogin_Salir.UseVisualStyleBackColor = false;
+            btnLogin_Salir.Click += btnLogin_Salir_Click;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 673);
+            Controls.Add(btnLogin_Salir);
             Controls.Add(lblLogin_Titulo);
             Controls.Add(btnLogin);
             Controls.Add(txtBLogin_Contraseña);
@@ -125,6 +139,7 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmLogin";
             Text = "Login";
+            Deactivate += FrmLogin_Deactivate;
             ((System.ComponentModel.ISupportInitialize)pctbLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -139,5 +154,6 @@
         private TextBox txtBLogin_Contraseña;
         private Button btnLogin;
         private Label lblLogin_Titulo;
+        private Button btnLogin_Salir;
     }
 }

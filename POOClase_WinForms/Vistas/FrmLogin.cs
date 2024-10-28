@@ -1,4 +1,4 @@
-using POOClase_WinForms.Clases;
+using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms
 {
@@ -21,10 +21,23 @@ namespace POOClase_WinForms
             if (administrador.ValidarCredenciales())
             {
                 MessageBox.Show("Inciaste sesión");
-                FrmMenu frmMenu = new FrmMenu(administrador, listaProductos);
+                FrmMenu frmMenu = new FrmMenu(this, administrador, listaProductos);
                 frmMenu.Show();
+
+                Hide();
             }
             else MessageBox.Show("Credenciales inexistentes o no válidas");
+        }
+
+        private void btnLogin_Salir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FrmLogin_Deactivate(object sender, EventArgs e)
+        {
+            txtBLogin_Usuario.Text = "";
+            txtBLogin_Contraseña.Text = "";
         }
     }
 }
