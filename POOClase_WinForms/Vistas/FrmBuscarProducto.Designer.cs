@@ -30,7 +30,7 @@
         {
             lblBuscar1 = new Label();
             txtBBuscar = new TextBox();
-            label1 = new Label();
+            lblBuscarProducto_ShowInfo = new Label();
             btnBuscar_Salir = new Button();
             SuspendLayout();
             // 
@@ -50,17 +50,15 @@
             txtBBuscar.Name = "txtBBuscar";
             txtBBuscar.Size = new Size(478, 27);
             txtBBuscar.TabIndex = 1;
-            txtBBuscar.PreviewKeyDown += txtBBuscar_PreviewKeyDown;
             // 
-            // label1
+            // lblBuscarProducto_ShowInfo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 110);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 28);
-            label1.TabIndex = 2;
-            label1.PreviewKeyDown += label1_PreviewKeyDown;
+            lblBuscarProducto_ShowInfo.AutoSize = true;
+            lblBuscarProducto_ShowInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblBuscarProducto_ShowInfo.Location = new Point(12, 110);
+            lblBuscarProducto_ShowInfo.Name = "lblBuscarProducto_ShowInfo";
+            lblBuscarProducto_ShowInfo.Size = new Size(0, 28);
+            lblBuscarProducto_ShowInfo.TabIndex = 2;
             // 
             // btnBuscar_Salir
             // 
@@ -71,7 +69,6 @@
             btnBuscar_Salir.TabIndex = 3;
             btnBuscar_Salir.Text = "Salir";
             btnBuscar_Salir.UseVisualStyleBackColor = false;
-            btnBuscar_Salir.Click += btnBuscar_Salir_Click;
             // 
             // FrmBuscarProducto
             // 
@@ -79,7 +76,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnBuscar_Salir);
-            Controls.Add(label1);
+            Controls.Add(lblBuscarProducto_ShowInfo);
             Controls.Add(txtBBuscar);
             Controls.Add(lblBuscar1);
             Name = "FrmBuscarProducto";
@@ -90,9 +87,9 @@
 
         #endregion
 
-        private Label lblBuscar1;
-        private TextBox txtBBuscar;
-        private Label label1;
-        private Button btnBuscar_Salir;
+        public Label lblBuscar1;
+        public TextBox txtBBuscar;
+        public Label lblBuscarProducto_ShowInfo;
+        public Button btnBuscar_Salir;
     }
 }

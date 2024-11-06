@@ -1,4 +1,4 @@
-using POOClase_WinForms.Clases;
+using POOClase_WinForms.Modelos;
 using System.Security.Cryptography.X509Certificates;
 
 namespace POOClase_WinForms
@@ -15,7 +15,7 @@ namespace POOClase_WinForms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.            
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLogin(listaProductos));
+            Application.Run(new FrmLogin());
         }
     }
 }

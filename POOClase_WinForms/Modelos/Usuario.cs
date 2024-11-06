@@ -21,5 +21,22 @@ namespace POOClase_WinForms.Modelos
             return username;
         }
 
+        public static void login(FrmLogin frmLogin)
+        {
+            Usuario usuario = new Usuario();
+
+            usuario.username = frmLogin.txtBLogin_Usuario.Text;
+            usuario.password = frmLogin.txtBLogin_Contraseña.Text;
+
+            if (usuario.ValidarCredenciales())
+            {
+                MessageBox.Show("Inciaste sesión");
+                FrmMenu frmMenu = new FrmMenu(usuario);
+                frmMenu.Show();
+
+                frmLogin.Hide();
+            }
+            else MessageBox.Show("Credenciales inexistentes o no válidas");
+        }
     }
 }

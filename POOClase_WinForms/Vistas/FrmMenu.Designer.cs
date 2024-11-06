@@ -31,7 +31,8 @@
             lblMenu_Bienvenido = new Label();
             btnAgregarProducto = new Button();
             btnMenu_Buscar = new Button();
-            button1 = new Button();
+            btnMenu_cerrarSesion = new Button();
+            btnMenu_agregarCategoria = new Button();
             SuspendLayout();
             // 
             // lblMenu_Bienvenido
@@ -54,7 +55,6 @@
             btnAgregarProducto.TabIndex = 1;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = false;
-            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // btnMenu_Buscar
             // 
@@ -66,26 +66,36 @@
             btnMenu_Buscar.TabIndex = 2;
             btnMenu_Buscar.Text = "Buscar info de producto";
             btnMenu_Buscar.UseVisualStyleBackColor = false;
-            btnMenu_Buscar.Click += btnMenu_Buscar_Click;
             // 
-            // button1
+            // btnMenu_cerrarSesion
             // 
-            button1.BackColor = Color.IndianRed;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(590, 17);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 39);
-            button1.TabIndex = 3;
-            button1.Text = "Cerrar sesión";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnMenu_cerrarSesion.BackColor = Color.IndianRed;
+            btnMenu_cerrarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu_cerrarSesion.Location = new Point(590, 17);
+            btnMenu_cerrarSesion.Name = "btnMenu_cerrarSesion";
+            btnMenu_cerrarSesion.Size = new Size(198, 39);
+            btnMenu_cerrarSesion.TabIndex = 3;
+            btnMenu_cerrarSesion.Text = "Cerrar sesión";
+            btnMenu_cerrarSesion.UseVisualStyleBackColor = false;
+            // 
+            // btnMenu_agregarCategoria
+            // 
+            btnMenu_agregarCategoria.BackColor = SystemColors.ActiveCaption;
+            btnMenu_agregarCategoria.Font = new Font("Segoe UI Symbol", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu_agregarCategoria.Location = new Point(12, 244);
+            btnMenu_agregarCategoria.Name = "btnMenu_agregarCategoria";
+            btnMenu_agregarCategoria.Size = new Size(283, 68);
+            btnMenu_agregarCategoria.TabIndex = 4;
+            btnMenu_agregarCategoria.Text = "Agregar categoría";
+            btnMenu_agregarCategoria.UseVisualStyleBackColor = false;
             // 
             // FrmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(btnMenu_agregarCategoria);
+            Controls.Add(btnMenu_cerrarSesion);
             Controls.Add(btnMenu_Buscar);
             Controls.Add(btnAgregarProducto);
             Controls.Add(lblMenu_Bienvenido);
@@ -97,9 +107,10 @@
 
         #endregion
 
-        private Label lblMenu_Bienvenido;
-        private Button btnAgregarProducto;
-        private Button btnMenu_Buscar;
-        private Button button1;
+        public Label lblMenu_Bienvenido;
+        public Button btnAgregarProducto;
+        public Button btnMenu_Buscar;
+        public Button btnMenu_cerrarSesion;
+        public Button btnMenu_agregarCategoria;
     }
 }
