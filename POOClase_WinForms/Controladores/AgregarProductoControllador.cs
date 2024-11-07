@@ -1,4 +1,5 @@
-﻿using POOClase_WinForms.Modelos;
+﻿using POOClase_WinForms.AccessData;
+using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -12,8 +13,7 @@ namespace POOClase_WinForms.Controladores
         }
         private void btnAgregarProcuto_Agregar_Click(object sender, EventArgs e)
         {
-            Producto productoNuevo = new Producto();
-            productoNuevo.AgregarProducto(_frmAgregarProducto);
+            ProductoDAO.AgregarPrducto(_frmAgregarProducto);
             _frmAgregarProducto.Close();
         }
 

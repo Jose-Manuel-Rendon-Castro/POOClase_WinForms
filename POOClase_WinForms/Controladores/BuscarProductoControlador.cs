@@ -14,10 +14,7 @@ namespace POOClase_WinForms.Controladores
         }
         private void txtBBuscar_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Producto.CheckProductInfo(_frmBuscarProducto.txtBBuscar.Text, _frmBuscarProducto.lblBuscarProducto_ShowInfo);
-            }
+
         }
 
         private void btnBuscar_Salir_Click(object sender, EventArgs e)
