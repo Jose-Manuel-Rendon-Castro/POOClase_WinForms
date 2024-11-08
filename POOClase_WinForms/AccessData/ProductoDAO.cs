@@ -16,6 +16,7 @@ namespace POOClase_WinForms.AccessData
             string input_nombre = _frmAgregarProducto.txtBAgregarProducto_Nombre.Text;
             decimal input_precio = Convert.ToDecimal(_frmAgregarProducto.txtBAgregarProducto_Precio.Text);
             string input_categoria = _frmAgregarProducto.txtBAgregarProducto_Categoria.Text;
+            string full_id;
             Producto producto = new Producto();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -36,7 +37,8 @@ namespace POOClase_WinForms.AccessData
                         {
                             if (CheckIfHigherMinimumPrice(_frmAgregarProducto, input_categoria))
                             {
-                                insertCommand.Parameters.AddWithValue("@id", GetID(_frmAgregarProducto, input_categoria));
+                                full_id = categoria_id.ToString() + GetID(_frmAgregarProducto, input_categoria).ToString();
+                                insertCommand.Parameters.AddWithValue("@id", Convert.ToInt32(full_id));
                                 insertCommand.ExecuteNonQuery();
                                 producto = (Producto)GetObjectProducto(_frmAgregarProducto, input_nombre);
                                 MessageBox.Show($"Se ha agregado el producto.\nID: {producto.id}\nNombre: {producto.nombre}\nCategoria: {producto.categoria} ({input_categoria})\nPrecio: ${producto.precio}\nCodigo de barra: {producto.codigoBarra}");
