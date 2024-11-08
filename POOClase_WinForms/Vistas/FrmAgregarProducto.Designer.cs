@@ -35,6 +35,7 @@
             txtBAgregarProducto_Categoria = new TextBox();
             btnAgregarProducto_Agregar = new Button();
             txtBAgregarProducto_Precio = new TextBox();
+            lblAgregarProducto_PrecioMinimo = new Label();
             SuspendLayout();
             // 
             // lblAgregarProducto_Nombre
@@ -105,12 +106,23 @@
             txtBAgregarProducto_Precio.TabIndex = 5;
             txtBAgregarProducto_Precio.UseWaitCursor = true;
             // 
+            // lblAgregarProducto_PrecioMinimo
+            // 
+            lblAgregarProducto_PrecioMinimo.AutoSize = true;
+            lblAgregarProducto_PrecioMinimo.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAgregarProducto_PrecioMinimo.Location = new Point(271, 244);
+            lblAgregarProducto_PrecioMinimo.Name = "lblAgregarProducto_PrecioMinimo";
+            lblAgregarProducto_PrecioMinimo.Size = new Size(69, 27);
+            lblAgregarProducto_PrecioMinimo.TabIndex = 9;
+            lblAgregarProducto_PrecioMinimo.Text = "label1";
+            // 
             // FrmAgregarProducto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblAgregarProducto_PrecioMinimo);
             Controls.Add(btnAgregarProducto_Agregar);
             Controls.Add(txtBAgregarProducto_Categoria);
             Controls.Add(txtBAgregarProducto_Precio);
@@ -134,5 +146,7 @@
         public TextBox txtBAgregarProducto_Categoria;
         public Button btnAgregarProducto_Agregar;
         public TextBox txtBAgregarProducto_Precio;
+        public Label lblAgregarProducto_PrecioMinimo;
+        private Label label1;
     }
 }

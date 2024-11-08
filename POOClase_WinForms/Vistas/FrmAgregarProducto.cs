@@ -7,9 +7,9 @@ namespace POOClase_WinForms
     {
         private AgregarProductoControllador _agregarProductoControllador;
         public FrmAgregarProducto()
-        {           
+        {
             InitializeComponent();
             _agregarProductoControllador = new AgregarProductoControllador(this);
-        }              
+        }
     }
 }

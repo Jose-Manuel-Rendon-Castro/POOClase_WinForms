@@ -9,13 +9,12 @@ namespace POOClase_WinForms.Controladores
         public AgregarProductoControllador(FrmAgregarProducto frmAgregarProducto)
         {
             _frmAgregarProducto = frmAgregarProducto;
-            _frmAgregarProducto.btnAgregarProducto_Agregar.Click += btnAgregarProcuto_Agregar_Click;
+            _frmAgregarProducto.btnAgregarProducto_Agregar.Click += btnAgregarProcuto_Agregar_Click;          
         }
         private void btnAgregarProcuto_Agregar_Click(object sender, EventArgs e)
         {
             ProductoDAO.AgregarPrducto(_frmAgregarProducto);
             _frmAgregarProducto.Close();
         }
-
     }
 }

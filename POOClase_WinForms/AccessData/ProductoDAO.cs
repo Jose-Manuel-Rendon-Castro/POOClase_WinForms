@@ -100,14 +100,13 @@ namespace POOClase_WinForms.AccessData
         }
         private static object GetObjectProducto(FrmAgregarProducto _frmAgregarProducto, string input_nombreProducto)
         {
-            string selectQuery = "SELECT * FROM producto WHERE nombre = @nombre";
-            string input_nombre = input_nombreProducto.Trim();
+            string selectQuery = "SELECT * FROM producto WHERE nombre = @nombre";            
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
                 {
-                    selectCommand.Parameters.AddWithValue("@nombre", input_nombre);
+                    selectCommand.Parameters.AddWithValue("@nombre", input_nombreProducto.Trim());
                     using (MySqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         if (reader.Read())
