@@ -135,7 +135,6 @@
         public TextBox txtBNombreCategoria;
         public TextBox txtBPrecioMinimo;
         private Label lblBuscar;
-        private TextBox textBox1;
         public Button btnBuscarCategoria;
         public TextBox txtBBuscar;
     }

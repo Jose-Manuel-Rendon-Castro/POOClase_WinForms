@@ -4,13 +4,13 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class ProductoDAO
+    public class AgregarProductoDAO
     {
         private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
 
         public static void AgregarPrducto(FrmAgregarProducto _frmAgregarProducto)
         {
-            string insertQuery = "INSERT INTO producto (id, nombre, precio, categoria) VALUES (@id, @nombre, @precio, @producto.categoria)";
+            string insertQuery = "INSERT INTO producto (id, nombre, precio, categoria, existencias) VALUES (@id, @nombre, @precio, @producto.categoria, 0)";
             string selectQuery = "SELECT id FROM categoria WHERE categoria.nombre = @categoria.nombre";
 
             string input_nombre = _frmAgregarProducto.txtBAgregarProducto_Nombre.Text;
@@ -98,7 +98,7 @@ namespace POOClase_WinForms.AccessData
                 }
             }
         }
-        private static object GetObjectProducto(FrmAgregarProducto _frmAgregarProducto, string input_nombreProducto)
+        private static object? GetObjectProducto(FrmAgregarProducto _frmAgregarProducto, string input_nombreProducto)
         {
             string selectQuery = "SELECT * FROM producto WHERE nombre = @nombre";            
             using (MySqlConnection conn = new MySqlConnection(connectionString))

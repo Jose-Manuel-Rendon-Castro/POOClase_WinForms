@@ -147,6 +147,5 @@
         public Button btnAgregarProducto_Agregar;
         public TextBox txtBAgregarProducto_Precio;
         public Label lblAgregarProducto_PrecioMinimo;
-        private Label label1;
     }
 }

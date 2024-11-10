@@ -3,7 +3,7 @@ using POOClase_WinForms.Vistas;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class CategoriaDAO
+    public class AgregarCategoriaDAO
     {
         private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
         public void AgregarCategoria(FrmAgregarCategoria _frmAgregarCategoria)

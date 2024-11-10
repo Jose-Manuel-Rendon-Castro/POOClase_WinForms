@@ -9,26 +9,32 @@ namespace POOClase_WinForms.Controladores
         public MenuControlador(FrmMenu frmMenu)
         {
             _frmMenu = frmMenu;
-            _frmMenu.btnAgregarProducto.Click += btnAgregarProducto_Click;
-            _frmMenu.btnMenu_Buscar.Click += btnMenu_Buscar_Click;
-            _frmMenu.btnMenu_agregarCategoria.Click += btnMenu_agregarCategoria_Click;
+            _frmMenu.btnMenu_AgregarProducto.Click += btnMenu_AgregarProducto_Click;
+            _frmMenu.btnMenu_BuscarProducto.Click += btnMenu_BuscarProducto_Click;
+            _frmMenu.btnMenu_AgregarCategoria.Click += btnMenu_AgregarCategoria_Click;
+            _frmMenu.btnMenu_BuscarCategoria.Click += btnMenu_BuscarProducto_Click;
             _frmMenu.btnMenu_cerrarSesion.Click += btnMenu_cerrarSesion_Click;
         }
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        private void btnMenu_AgregarProducto_Click(object sender, EventArgs e)
         {
             FrmAgregarProducto frmAgregarProducto = new FrmAgregarProducto();
             frmAgregarProducto.ShowDialog();
         }
 
-        private void btnMenu_Buscar_Click(object sender, EventArgs e)
+        private void btnMenu_BuscarProducto_Click(object sender, EventArgs e)
         {
             FrmBuscarProducto frmBuscarProducto = new FrmBuscarProducto();
             frmBuscarProducto.ShowDialog();
         }
-        private void btnMenu_agregarCategoria_Click(object sender, EventArgs e)
+        private void btnMenu_AgregarCategoria_Click(object sender, EventArgs e)
         {
             FrmAgregarCategoria frmAgregarCategoria = new FrmAgregarCategoria();
             frmAgregarCategoria.ShowDialog();
+        }
+        private void btnMenu_BuscarCategoria_Click(Object sender, EventArgs e)
+        {
+            FrmBuscarCategoria frmBuscarCategoria = new FrmBuscarCategoria();
+            frmBuscarCategoria.ShowDialog();
         }
         private void btnMenu_cerrarSesion_Click(object sender, EventArgs e)
         {

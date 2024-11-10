@@ -1,4 +1,5 @@
-﻿using POOClase_WinForms.Modelos;
+﻿using POOClase_WinForms.AccessData;
+using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -14,7 +15,19 @@ namespace POOClase_WinForms.Controladores
         }
         private void txtBBuscar_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if(BuscarProductoDAO.BuscarProdutoInfo(_frmBuscarProducto) != null)
+                {
+                    Producto? producto = BuscarProductoDAO.BuscarProdutoInfo(_frmBuscarProducto);
+                    _frmBuscarProducto.lblBuscarProducto_ShowInfo.Text = $"ID: {producto.id}\nCategoria: {producto.categoria}\nPrecio: ${producto.precio}\nCodigo de barra: {producto.codigoBarra}\nExistencias: {producto.existencias}";
+                }
+                else
+                {
+                    _frmBuscarProducto.lblBuscarProducto_ShowInfo.Text = string.Empty;
+                }
 
+            }
         }
 
         private void btnBuscar_Salir_Click(object sender, EventArgs e)
