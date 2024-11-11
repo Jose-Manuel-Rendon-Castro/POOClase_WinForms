@@ -11,7 +11,7 @@ namespace POOClase_WinForms
         {
             InitializeComponent();
             _menuControlador = new MenuControlador(this);
-            lblMenu_Bienvenido.Text = $"Bienvenido {usuario.GetUsername()}";
+            this.lblMenu_Bienvenido.Text = $"Bienvenido {usuario.nombreUsuario}";
         }        
     }
 }

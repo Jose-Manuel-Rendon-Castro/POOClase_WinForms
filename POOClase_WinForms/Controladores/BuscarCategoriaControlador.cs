@@ -12,22 +12,26 @@ namespace POOClase_WinForms.Controladores
         {
             _frmBuscarCategoria = frmBuscarCategoria;
             _frmBuscarCategoria.txtBBuscarCategoria.PreviewKeyDown += txtBBuscarCategoria_PreviewKeyDown;
+            _frmBuscarCategoria.btnBuscarCategoria_Salir.Click += btnBuscarCategoria_Salir_Click;
         }
 
         private void txtBBuscarCategoria_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
-                Categoria? categoria= BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria);
-                _frmBuscarCategoria.lblBuscarCategoria_ShowInfo.Text = $"ID: {categoria.id}\nNombre: {categoria.nombre}\nPrecio Minimo: {categoria.precio_Minimo}";
-            }
-            else
-            {
-                _frmBuscarCategoria.lblBuscarCategoria_ShowInfo.Text = string.Empty;
+                if(BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria) != null)
+                {
+                    Categoria? categoria= BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria);
+                    _frmBuscarCategoria.lblBuscarCategoria_ShowInfo.Text = $"ID: {categoria.id}\nNombre: {categoria.nombre}\nPrecio Minimo: {categoria.precio_Minimo}";
+                }
+                else
+                {
+                    _frmBuscarCategoria.lblBuscarCategoria_ShowInfo.Text = string.Empty;
+                }
             }
         }
 
-        private void btnBuscarCategoria_Salir(object sender, EventArgs e)
+        private void btnBuscarCategoria_Salir_Click(object sender, EventArgs e)
         {
             _frmBuscarCategoria.Close();
         }

@@ -1,4 +1,5 @@
-﻿using POOClase_WinForms.Modelos;
+﻿using POOClase_WinForms.AccessData;
+using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -7,7 +8,7 @@ namespace POOClase_WinForms.Controladores
         private FrmLogin _frmLogin;
 
         public LoginControlador(FrmLogin frmLogin)
-        {
+        {   
             _frmLogin = frmLogin;
             _frmLogin.btnLogin.Click += btnLogin_Click;
             _frmLogin.btnLogin_Salir.Click += btnLogin_Salir_Click;
@@ -15,7 +16,19 @@ namespace POOClase_WinForms.Controladores
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Usuario.login(_frmLogin);
+            Usuario? userOnUse = LoginDAO.IniciarSesion(_frmLogin);
+            if(userOnUse != null)
+            {
+                FrmMenu frmMenu = new FrmMenu(userOnUse);                
+                MessageBox.Show("Inciaste sesión");
+                frmMenu.ShowDialog();
+                _frmLogin.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales no coinciden o inexistentes");
+                return;
+            }
         }
 
         private void btnLogin_Salir_Click(object sender, EventArgs e)

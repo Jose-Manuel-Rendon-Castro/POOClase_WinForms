@@ -34,6 +34,7 @@
             btnMenu_cerrarSesion = new Button();
             btnMenu_AgregarCategoria = new Button();
             btnMenu_BuscarCategoria = new Button();
+            btnMenu_CrearUsuario = new Button();
             SuspendLayout();
             // 
             // lblMenu_Bienvenido
@@ -101,11 +102,23 @@
             btnMenu_BuscarCategoria.Text = "Buscar info de categoria";
             btnMenu_BuscarCategoria.UseVisualStyleBackColor = false;
             // 
+            // btnMenu_CrearUsuario
+            // 
+            btnMenu_CrearUsuario.BackColor = SystemColors.ActiveCaption;
+            btnMenu_CrearUsuario.Font = new Font("Segoe UI Symbol", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu_CrearUsuario.Location = new Point(505, 70);
+            btnMenu_CrearUsuario.Name = "btnMenu_CrearUsuario";
+            btnMenu_CrearUsuario.Size = new Size(283, 68);
+            btnMenu_CrearUsuario.TabIndex = 6;
+            btnMenu_CrearUsuario.Text = "Crear Usuario";
+            btnMenu_CrearUsuario.UseVisualStyleBackColor = false;
+            // 
             // FrmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnMenu_CrearUsuario);
             Controls.Add(btnMenu_BuscarCategoria);
             Controls.Add(btnMenu_AgregarCategoria);
             Controls.Add(btnMenu_cerrarSesion);
@@ -126,5 +139,6 @@
         public Button btnMenu_cerrarSesion;
         public Button btnMenu_AgregarCategoria;
         public Button btnMenu_BuscarCategoria;
+        public Button btnMenu_CrearUsuario;
     }
 }

@@ -4,39 +4,20 @@ namespace POOClase_WinForms.Modelos
 {
     public class Usuario
     {
-        public String username = "";
-        public String password = "";
+        private int _id;
+        private string _nombreUsuario;
+        private string _contraseña;
+        private string _nombre;
+        private string _apellido;
+        private string _email;
+        private string _tipoUsuario;
 
-        public bool ValidarCredenciales()
-        {
-            if (username == "admin" && password == "123")
-            {
-                return true;
-            }
-            else return false;
-        }
-
-        public String GetUsername()
-        {
-            return username;
-        }
-
-        public static void login(FrmLogin frmLogin)
-        {
-            Usuario usuario = new Usuario();
-
-            usuario.username = frmLogin.txtBLogin_Usuario.Text;
-            usuario.password = frmLogin.txtBLogin_Contraseña.Text;
-
-            if (usuario.ValidarCredenciales())
-            {
-                MessageBox.Show("Inciaste sesión");
-                FrmMenu frmMenu = new FrmMenu(usuario);
-                frmMenu.Show();
-
-                frmLogin.Hide();
-            }
-            else MessageBox.Show("Credenciales inexistentes o no válidas");
-        }
+        public int id { get { return _id; } set { _id = value; } }
+        public string nombreUsuario { get { return _nombreUsuario; } set { _nombreUsuario = value; } }
+        public string contraseña { get { return _contraseña; } set { _contraseña = value; } }
+        public string nombre { get { return _nombre; } set { _nombre = value; } }
+        public string apellido { get { return _apellido; } set { _apellido = value; } }
+        public string email { get { return _email; } set { _email = value; } }
+        public string tipoUsuario { get {return _tipoUsuario; } set { _tipoUsuario = value; } }
     }
 }

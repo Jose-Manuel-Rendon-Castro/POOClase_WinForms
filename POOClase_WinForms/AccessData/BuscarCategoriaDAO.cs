@@ -30,7 +30,7 @@ namespace POOClase_WinForms.AccessData
                             Categoria categoria = new Categoria
                             {
                                 id = reader.GetInt32("id"),
-                                nombre = reader.GetString("name"),
+                                nombre = reader.GetString("nombre"),
                                 precio_Minimo = reader.GetDecimal("precio_minimo")
                             };
                             return categoria;
