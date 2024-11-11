@@ -71,7 +71,7 @@
             // 
             // txtBAgregarProducto_Nombre
             // 
-            txtBAgregarProducto_Nombre.BackColor = Color.White;
+            txtBAgregarProducto_Nombre.BackColor = Color.Snow;
             txtBAgregarProducto_Nombre.Location = new Point(271, 95);
             txtBAgregarProducto_Nombre.Name = "txtBAgregarProducto_Nombre";
             txtBAgregarProducto_Nombre.Size = new Size(297, 27);
@@ -80,7 +80,7 @@
             // 
             // txtBAgregarProducto_Categoria
             // 
-            txtBAgregarProducto_Categoria.BackColor = Color.White;
+            txtBAgregarProducto_Categoria.BackColor = Color.Snow;
             txtBAgregarProducto_Categoria.Location = new Point(271, 329);
             txtBAgregarProducto_Categoria.Name = "txtBAgregarProducto_Categoria";
             txtBAgregarProducto_Categoria.Size = new Size(297, 27);
@@ -99,7 +99,7 @@
             // 
             // txtBAgregarProducto_Precio
             // 
-            txtBAgregarProducto_Precio.BackColor = Color.White;
+            txtBAgregarProducto_Precio.BackColor = Color.Snow;
             txtBAgregarProducto_Precio.Location = new Point(271, 203);
             txtBAgregarProducto_Precio.Name = "txtBAgregarProducto_Precio";
             txtBAgregarProducto_Precio.Size = new Size(297, 27);

@@ -7,11 +7,11 @@ namespace POOClase_WinForms
     public partial class FrmMenu : Form
     {
         private MenuControlador _menuControlador;
+        private FrmLogin _frmLogin;
         public FrmMenu(Usuario usuario)
         {
             InitializeComponent();
             _menuControlador = new MenuControlador(this);
-            this.lblMenu_Bienvenido.Text = $"Bienvenido {usuario.nombreUsuario}";
         }        
     }
 }

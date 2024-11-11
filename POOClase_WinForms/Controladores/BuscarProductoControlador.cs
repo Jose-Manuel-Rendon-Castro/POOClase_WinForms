@@ -20,7 +20,7 @@ namespace POOClase_WinForms.Controladores
                 if(BuscarProductoDAO.BuscarProdutoInfo(_frmBuscarProducto) != null)
                 {
                     Producto? producto = BuscarProductoDAO.BuscarProdutoInfo(_frmBuscarProducto);
-                    _frmBuscarProducto.lblBuscarProducto_ShowInfo.Text = $"ID: {producto.id}\nCategoria: {producto.categoria}\nPrecio: ${producto.precio}\nCodigo de barra: {producto.codigoBarra}\nExistencias: {producto.existencias}";
+                    _frmBuscarProducto.lblBuscarProducto_ShowInfo.Text = $"ID: {producto.id}\nCategoria: {producto.categoria}\nNombre: {producto.nombre}\nPrecio: ${producto.precio}\nCodigo de barra: {producto.codigoBarra}\nExistencias: {producto.existencias}";
                 }
                 else
                 {

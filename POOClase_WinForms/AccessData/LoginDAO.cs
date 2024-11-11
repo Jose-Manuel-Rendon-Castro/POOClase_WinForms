@@ -7,11 +7,9 @@ namespace POOClase_WinForms.AccessData
     {
         private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
 
-        public static Usuario? IniciarSesion(FrmLogin frmLogin)
+        public static Usuario? IniciarSesion(string input_nombreUsuario, string input_contraseña)
         {
             string loginQuery = "SELECT COUNT(*) FROM usuarios WHERE nombre_usuario = @nombre_usuario AND contraseña = @contraseña";
-            string input_nombreUsuario = frmLogin.txtBLogin_Usuario.Text;
-            string input_contraseña = frmLogin.txtBLogin_Contraseña.Text;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -23,25 +21,24 @@ namespace POOClase_WinForms.AccessData
                     int result = Convert.ToInt32(loginCommand.ExecuteScalar());
                     if(result > 0)
                     {
-                        Usuario? usuario = LoginDAO.getUsuarioData(frmLogin);
+                        Usuario? usuario = LoginDAO.getUsuarioData(input_nombreUsuario, input_contraseña);
                         return usuario;
                     }
                     else { return null; }
                 }
             }
         }
-        private static Usuario? getUsuarioData(FrmLogin frmLogin)
+        private static Usuario? getUsuarioData(string input_nombreUsuario, string input_contraseña)
         {
             string getDataQuery = "SELECT * FROM usuarios WHERE nombre_usuario = @nombre_usuario AND contraseña = @contraseña";
-            string input_nombreUsuario = frmLogin.txtBLogin_Usuario.Text.Trim();
-            string input_contraseña = frmLogin.txtBLogin_Contraseña.Text.Trim();
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 using (MySqlCommand getDataCommand = new MySqlCommand(getDataQuery, conn))
                 {
-                    getDataCommand.Parameters.AddWithValue("@nombre_usuario", input_nombreUsuario);
-                    getDataCommand.Parameters.AddWithValue("@contraseña", input_contraseña);
+                    getDataCommand.Parameters.AddWithValue("@nombre_usuario", input_nombreUsuario.Trim());
+                    getDataCommand.Parameters.AddWithValue("@contraseña", input_contraseña.Trim());
                     using (MySqlDataReader reader = getDataCommand.ExecuteReader())
                     {
                         if (reader.Read())
@@ -53,7 +50,8 @@ namespace POOClase_WinForms.AccessData
                                 contraseña = reader.GetString("contraseña"),
                                 nombre = reader.GetString("nombre"),
                                 apellido = reader.GetString("apellido"),
-                                email = reader.GetString("email")
+                                email = reader.GetString("email"),
+                                tipoUsuario = reader.GetString("tipoUsuario")
                             };
                             return usuario;
                         }

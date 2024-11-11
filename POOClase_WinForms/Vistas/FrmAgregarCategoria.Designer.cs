@@ -33,9 +33,7 @@
             txtBNombreCategoria = new TextBox();
             txtBPrecioMinimo = new TextBox();
             btnAgregarCategoria_Agregar = new Button();
-            lblBuscar = new Label();
-            txtBBuscar = new TextBox();
-            btnBuscarCategoria = new Button();
+            btnAgregarCategoria_Salir = new Button();
             SuspendLayout();
             // 
             // lblNombreCategoria
@@ -82,40 +80,22 @@
             btnAgregarCategoria_Agregar.Text = "AGREGAR";
             btnAgregarCategoria_Agregar.UseVisualStyleBackColor = false;
             // 
-            // lblBuscar
+            // btnAgregarCategoria_Salir
             // 
-            lblBuscar.AutoSize = true;
-            lblBuscar.Location = new Point(29, 317);
-            lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(115, 20);
-            lblBuscar.TabIndex = 5;
-            lblBuscar.Text = "BUSCAR POR ID";
-            // 
-            // txtBBuscar
-            // 
-            txtBBuscar.Location = new Point(169, 314);
-            txtBBuscar.Name = "txtBBuscar";
-            txtBBuscar.Size = new Size(125, 27);
-            txtBBuscar.TabIndex = 6;
-            // 
-            // btnBuscarCategoria
-            // 
-            btnBuscarCategoria.BackColor = SystemColors.ActiveCaption;
-            btnBuscarCategoria.Location = new Point(322, 287);
-            btnBuscarCategoria.Name = "btnBuscarCategoria";
-            btnBuscarCategoria.Size = new Size(214, 81);
-            btnBuscarCategoria.TabIndex = 7;
-            btnBuscarCategoria.Text = "BUSCAR";
-            btnBuscarCategoria.UseVisualStyleBackColor = false;
+            btnAgregarCategoria_Salir.BackColor = Color.IndianRed;
+            btnAgregarCategoria_Salir.Location = new Point(565, 344);
+            btnAgregarCategoria_Salir.Name = "btnAgregarCategoria_Salir";
+            btnAgregarCategoria_Salir.Size = new Size(214, 81);
+            btnAgregarCategoria_Salir.TabIndex = 5;
+            btnAgregarCategoria_Salir.Text = "SALIR";
+            btnAgregarCategoria_Salir.UseVisualStyleBackColor = false;
             // 
             // FrmAgregarCategoria
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnBuscarCategoria);
-            Controls.Add(txtBBuscar);
-            Controls.Add(lblBuscar);
+            Controls.Add(btnAgregarCategoria_Salir);
             Controls.Add(btnAgregarCategoria_Agregar);
             Controls.Add(txtBPrecioMinimo);
             Controls.Add(txtBNombreCategoria);
@@ -134,8 +114,6 @@
         public Button btnAgregarCategoria_Agregar;
         public TextBox txtBNombreCategoria;
         public TextBox txtBPrecioMinimo;
-        private Label lblBuscar;
-        public Button btnBuscarCategoria;
-        public TextBox txtBBuscar;
+        public Button btnAgregarCategoria_Salir;
     }
 }

@@ -30,6 +30,7 @@ namespace POOClase_WinForms.AccessData
                             {
                                 id = reader.GetInt32("id"),
                                 categoria = reader.GetInt32("categoria"),
+                                nombre = reader.GetString("nombre"),
                                 precio = reader.GetDecimal("precio"),
                                 codigoBarra = reader.GetInt32("codigo_barra"),
                                 existencias = reader.GetInt32("existencias")

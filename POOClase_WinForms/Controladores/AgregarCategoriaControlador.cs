@@ -11,7 +11,7 @@ namespace POOClase_WinForms.Controladores
         {
             _frmAgregarCategoria = frmAgregarCategoria;
             _frmAgregarCategoria.btnAgregarCategoria_Agregar.Click += btnAgregarCategoria_Agregar_Click;
-            _frmAgregarCategoria.btnBuscarCategoria.Click += btnBuscarCategoria_Click;
+            _frmAgregarCategoria.btnAgregarCategoria_Salir.Click += btnAgregarCategoria_Salir_Click;
         }
 
         private void btnAgregarCategoria_Agregar_Click(object sender, EventArgs e)
@@ -19,9 +19,9 @@ namespace POOClase_WinForms.Controladores
             AgregarCategoriaDAO nuevacCategoria = new AgregarCategoriaDAO();
             nuevacCategoria.AgregarCategoria(_frmAgregarCategoria);
         }
-        private void btnBuscarCategoria_Click(object sender, EventArgs e)
+        private void btnAgregarCategoria_Salir_Click(object sender, EventArgs e)
         {
-            
+            _frmAgregarCategoria.Close();
         }
 
     }
