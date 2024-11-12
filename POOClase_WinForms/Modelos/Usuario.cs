@@ -1,4 +1,5 @@
-﻿using System.Drawing.Printing;
+﻿using POOClase_WinForms.Vistas;
+using System.Drawing.Printing;
 
 namespace POOClase_WinForms.Modelos
 {
@@ -19,5 +20,29 @@ namespace POOClase_WinForms.Modelos
         public string apellido { get { return _apellido; } set { _apellido = value; } }
         public string email { get { return _email; } set { _email = value; } }
         public string tipoUsuario { get {return _tipoUsuario; } set { _tipoUsuario = value; } }
+
+        public static bool CheckTxtBox(FrmCrearUsuario frmCrearUsuario)
+        {
+            return !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_Nombre.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_Apellido.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_Email.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_NombreUsuario.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_Contraseña.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.txtbCrearUsuario_Confirmar.Text) &&
+                   !String.IsNullOrEmpty(frmCrearUsuario.combxCrearUsuario_Tipo.Text);
+        }
+        
+        public static bool ConfirmarContraseña(FrmCrearUsuario frmCrearUsuario)
+        {
+            return frmCrearUsuario.txtbCrearUsuario_Contraseña.Text == frmCrearUsuario.txtbCrearUsuario_Confirmar.Text;
+        }
+        public static bool EsCorreo(string input_email)
+        {
+            return input_email.Contains("@gmail.com") ||
+                   input_email.Contains("@hotmail.com") ||
+                   input_email.Contains("@outlook.com") ||
+                   input_email.Contains("@yahoo.com") ||
+                   input_email.Contains("icloud.com");
+        }
     }
 }

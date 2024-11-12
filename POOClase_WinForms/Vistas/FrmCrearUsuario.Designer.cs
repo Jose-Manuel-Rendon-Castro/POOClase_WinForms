@@ -163,6 +163,7 @@
             // 
             // combxCrearUsuario_Tipo
             // 
+            combxCrearUsuario_Tipo.DropDownStyle = ComboBoxStyle.DropDownList;
             combxCrearUsuario_Tipo.FormattingEnabled = true;
             combxCrearUsuario_Tipo.Items.AddRange(new object[] { "Administrador", "Usuario" });
             combxCrearUsuario_Tipo.Location = new Point(372, 281);
