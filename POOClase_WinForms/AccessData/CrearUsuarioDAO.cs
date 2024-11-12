@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using POOClase_WinForms.Modelos;
 using POOClase_WinForms.Exceptions;
-using System.Diagnostics.CodeAnalysis;
 
 namespace POOClase_WinForms.AccessData
 {

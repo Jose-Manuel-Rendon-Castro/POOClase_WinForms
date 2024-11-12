@@ -42,7 +42,7 @@ namespace POOClase_WinForms.Modelos
                    input_email.Contains("@hotmail.com") ||
                    input_email.Contains("@outlook.com") ||
                    input_email.Contains("@yahoo.com") ||
-                   input_email.Contains("icloud.com");
+                   input_email.Contains("@icloud.com");
         }
     }
 }
