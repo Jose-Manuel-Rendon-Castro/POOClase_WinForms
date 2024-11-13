@@ -4,9 +4,8 @@ using POOClase_WinForms.Vistas;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class BuscarCategoriaDAO
+    public class BuscarCategoriaDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
         public static Categoria? BuscarCategoria(FrmBuscarCategoria frmBuscarCategoria)
         {
             string selectQuery = "SELECT * FROM categoria WHERE id = @id";

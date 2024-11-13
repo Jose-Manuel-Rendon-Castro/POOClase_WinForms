@@ -4,9 +4,8 @@ using POOClase_WinForms.Exceptions;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class CrearUsuarioDAO
+    public class CrearUsuarioDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
         public static bool CrearUsuario(string input_nombreUsuario, string input_contraseña, string input_nombre, string input_apellido, string input_email, string input_tipoUsuario)
         {
             string insertQuery = "INSERT INTO usuarios (id, nombre_usuario, contraseña, nombre, apellido, email, tipoUsuario) VALUES (@id, @nombre_usuario, @contraseña, @nombre, @apellido, @email, @tipoUsuario)";

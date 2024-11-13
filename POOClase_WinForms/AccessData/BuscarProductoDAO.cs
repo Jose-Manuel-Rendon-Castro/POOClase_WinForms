@@ -4,9 +4,8 @@ using POOClase_WinForms.Vistas;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class BuscarProductoDAO
+    public class BuscarProductoDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
         public static Producto? BuscarProdutoInfo(FrmBuscarProducto frmBuscarProducto)
         {
             string selectQuery = "SELECT * FROM producto WHERE id = @id";

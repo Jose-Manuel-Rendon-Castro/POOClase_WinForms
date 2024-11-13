@@ -4,10 +4,8 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class AgregarProductoDAO
+    public class AgregarProductoDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
-
         public static void AgregarPrducto(FrmAgregarProducto _frmAgregarProducto)
         {
             string insertQuery = "INSERT INTO producto (id, nombre, precio, categoria, existencias) VALUES (@id, @nombre, @precio, @producto.categoria, 0)";

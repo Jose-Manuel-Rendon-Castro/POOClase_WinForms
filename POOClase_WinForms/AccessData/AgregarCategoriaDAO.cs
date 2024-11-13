@@ -3,9 +3,8 @@ using POOClase_WinForms.Vistas;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class AgregarCategoriaDAO
+    public class AgregarCategoriaDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
         public void AgregarCategoria(FrmAgregarCategoria _frmAgregarCategoria)
         {
             string insertQuery = "INSERT INTO categoria (nombre, precio_minimo) VALUES (@nombre, @precio_minimo)";

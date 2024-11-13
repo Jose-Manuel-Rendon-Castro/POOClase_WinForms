@@ -3,10 +3,8 @@ using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms.AccessData
 {
-    public class LoginDAO
+    public class LoginDAO : ConnectionString
     {
-        private static readonly string connectionString = "Server=localhost;Database=tienda;Uid=root;Pwd=23040273";
-
         public static Usuario? IniciarSesion(string input_nombreUsuario, string input_contraseña)
         {
             string loginQuery = "SELECT COUNT(*) FROM usuarios WHERE nombre_usuario = @nombre_usuario AND contraseña = @contraseña";
