@@ -1,8 +1,5 @@
 ﻿using POOClase_WinForms.AccessData;
 using POOClase_WinForms.Modelos;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Windows.Forms;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -22,7 +19,7 @@ namespace POOClase_WinForms.Controladores
             Usuario? userOnUse = LoginDAO.IniciarSesion(_frmLogin.txtBLogin_Usuario.Text, _frmLogin.txtBLogin_Contraseña.Text);
             if(userOnUse != null)
             {
-                FrmMenu frmMenu = new FrmMenu(userOnUse);                
+                FrmMenuAdmin frmMenu = new FrmMenuAdmin(userOnUse);                
                 MessageBox.Show("Inciaste sesión");
                 _frmLogin.Hide();
                 frmMenu.lblMenu_Bienvenido.Text = $"Bienvenido {userOnUse.nombreUsuario}";

@@ -4,8 +4,8 @@ namespace POOClase_WinForms.Controladores
 {
     public class MenuControlador
     {
-        private FrmMenu _frmMenu;
-        public MenuControlador(FrmMenu frmMenu)
+        private FrmMenuAdmin _frmMenu;
+        public MenuControlador(FrmMenuAdmin frmMenu)
         {
             _frmMenu = frmMenu;
             _frmMenu.btnMenu_AgregarProducto.Click += btnMenu_AgregarProducto_Click;

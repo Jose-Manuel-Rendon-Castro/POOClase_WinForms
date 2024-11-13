@@ -1,6 +1,6 @@
 ﻿namespace POOClase_WinForms
 {
-    partial class FrmMenu
+    partial class FrmMenuAdmin
     {
         /// <summary>
         /// Required designer variable.
