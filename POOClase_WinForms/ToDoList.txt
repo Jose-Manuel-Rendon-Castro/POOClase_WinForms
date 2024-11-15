@@ -1,0 +1,29 @@
+﻿La entrega de este ejercicio junto a los demás puntos trabajados en el proyecto visto en clase serán considerados como proyecto de segundo parcial. 
+Será posible organizarse en equipos de máximo 5 integrantes para trabajar este ejercicio e incluir los puntos antes trabajados en clase que son:
+
+    Inicio de sesión       -> LISTO
+    Menú principal         -> LISTO
+    Control de productos   -> LISTO
+    Control de categorías  -> LISTO
+    Uso de patrón MVC      
+
+La revisión será en clase el próximo miércoles 20 de noviembre.
+Incluir en los comentarios de este post los integrantes de cada equipo incluyendo matrícula y nombre.
+
+Descripción del ejercicio
+
+1) DataGridView
+Investigar cómo utilizar este elemento para mostrar datos en un formulario
+
+2) Formulario de consulta
+Crear un nuevo formulario cuya funcionalidad será poder mostrar la información registrada en los catálogos del sistema. Hasta este punto contamos con 2 catálogos, productos y categorías (el catálogo de usuarios no será considerado).
+
+Para ello, al abrir el formulario de búsqueda, éste deberá ser capaz de detectar qué información se desea mostrar (categorías o productos) y, por ende, mostrar solo los datos pertinentes considerando:
+
+    En caso de mostrar la información de categorías incluir id, descripción y precio mínimo.
+    En caso de mostrar la información de productos incluir id, nombre, precio, id categoría y nombre categoría.
+    Incluir un textBox de búsqueda por nombre donde al escribir o presionar enter en él se realice el filtrado de datos acorde a lo que se escribió.
+
+En el formulario de registro de productos se deberá añadir una opción para buscar categorías que servirá como apoyo en el llenado de ID de categoría correspondiente al producto.
+
+La finalidad de crear este nuevo formulario es poder brindar al usuario una opción de búsqueda más amplia según sea el tipo de información que requiera y poder acceder a los ID's de una forma más sencilla sin necesidad de memorizarlos.

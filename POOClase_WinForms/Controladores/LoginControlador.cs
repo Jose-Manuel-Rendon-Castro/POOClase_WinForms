@@ -22,7 +22,9 @@ namespace POOClase_WinForms.Controladores
                 FrmMenuAdmin frmMenu = new FrmMenuAdmin(userOnUse);                
                 MessageBox.Show("Inciaste sesión");
                 _frmLogin.Hide();
+
                 frmMenu.lblMenu_Bienvenido.Text = $"Bienvenido {userOnUse.nombreUsuario}";
+                frmMenu.FormClosed += (s, args) => _frmLogin.Show();
                 frmMenu.ShowDialog();
             }
             else
@@ -34,7 +36,7 @@ namespace POOClase_WinForms.Controladores
 
         private void btnLogin_Salir_Click(object sender, EventArgs e)
         {
-            _frmLogin.Close();
+            Application.Exit();
         }
 
         private void FrmLogin_Deactivate(object sender, EventArgs e)
