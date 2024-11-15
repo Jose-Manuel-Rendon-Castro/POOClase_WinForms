@@ -30,9 +30,9 @@
         {
             label1 = new Label();
             combxTablasInfo_NombreTabla = new ComboBox();
-            dataGridView1 = new DataGridView();
+            dtgvTablasInfo_Tabla = new DataGridView();
             btnTablaInfo_Salir = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvTablasInfo_Tabla).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,20 +50,20 @@
             combxTablasInfo_NombreTabla.DropDownStyle = ComboBoxStyle.DropDownList;
             combxTablasInfo_NombreTabla.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             combxTablasInfo_NombreTabla.FormattingEnabled = true;
-            combxTablasInfo_NombreTabla.Items.AddRange(new object[] { "Categorías", "Productos" });
+            combxTablasInfo_NombreTabla.Items.AddRange(new object[] { "categoria", "producto" });
             combxTablasInfo_NombreTabla.Location = new Point(12, 39);
             combxTablasInfo_NombreTabla.Name = "combxTablasInfo_NombreTabla";
             combxTablasInfo_NombreTabla.Size = new Size(167, 35);
             combxTablasInfo_NombreTabla.TabIndex = 1;
             // 
-            // dataGridView1
+            // dtgvTablasInfo_Tabla
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 118);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1063, 423);
-            dataGridView1.TabIndex = 2;
+            dtgvTablasInfo_Tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvTablasInfo_Tabla.Location = new Point(12, 118);
+            dtgvTablasInfo_Tabla.Name = "dtgvTablasInfo_Tabla";
+            dtgvTablasInfo_Tabla.RowHeadersWidth = 51;
+            dtgvTablasInfo_Tabla.Size = new Size(1063, 423);
+            dtgvTablasInfo_Tabla.TabIndex = 2;
             // 
             // btnTablaInfo_Salir
             // 
@@ -82,12 +82,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1087, 553);
             Controls.Add(btnTablaInfo_Salir);
-            Controls.Add(dataGridView1);
+            Controls.Add(dtgvTablasInfo_Tabla);
             Controls.Add(combxTablasInfo_NombreTabla);
             Controls.Add(label1);
             Name = "FrmTablasInfo";
             Text = "FrmTablasInfo";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgvTablasInfo_Tabla).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,8 +95,8 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
         public ComboBox combxTablasInfo_NombreTabla;
         public Button btnTablaInfo_Salir;
+        public DataGridView dtgvTablasInfo_Tabla;
     }
 }

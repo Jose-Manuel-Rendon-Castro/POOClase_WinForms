@@ -1,4 +1,5 @@
-﻿using POOClase_WinForms.Vistas.Vistas_Administrador;
+﻿using POOClase_WinForms.DataAccessObject;
+using POOClase_WinForms.Vistas.Vistas_Administrador;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -14,7 +15,10 @@ namespace POOClase_WinForms.Controladores
 
         private void frmTablasInfo_Load (object sender, EventArgs e)
         {
-
+            TablasInfoDAO.MostrarInfo(
+                _frmTablasInfo.dtgvTablasInfo_Tabla,
+                _frmTablasInfo.combxTablasInfo_NombreTabla.Text
+            );
         }
         private void btnTablasInfo_Salir_Click (object sender, EventArgs e)
         {

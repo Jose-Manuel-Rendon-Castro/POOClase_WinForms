@@ -35,6 +35,7 @@
             btnMenu_AgregarCategoria = new Button();
             btnMenu_BuscarCategoria = new Button();
             btnMenu_CrearUsuario = new Button();
+            btnMenu_VerTablasInfo = new Button();
             SuspendLayout();
             // 
             // lblMenu_Bienvenido
@@ -113,11 +114,23 @@
             btnMenu_CrearUsuario.Text = "Crear Usuario";
             btnMenu_CrearUsuario.UseVisualStyleBackColor = false;
             // 
-            // FrmMenu
+            // btnMenu_VerTablasInfo
+            // 
+            btnMenu_VerTablasInfo.BackColor = SystemColors.ActiveCaption;
+            btnMenu_VerTablasInfo.Font = new Font("Segoe UI Symbol", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMenu_VerTablasInfo.Location = new Point(505, 155);
+            btnMenu_VerTablasInfo.Name = "btnMenu_VerTablasInfo";
+            btnMenu_VerTablasInfo.Size = new Size(283, 68);
+            btnMenu_VerTablasInfo.TabIndex = 7;
+            btnMenu_VerTablasInfo.Text = "Ver tablas";
+            btnMenu_VerTablasInfo.UseVisualStyleBackColor = false;
+            // 
+            // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnMenu_VerTablasInfo);
             Controls.Add(btnMenu_CrearUsuario);
             Controls.Add(btnMenu_BuscarCategoria);
             Controls.Add(btnMenu_AgregarCategoria);
@@ -125,7 +138,7 @@
             Controls.Add(btnMenu_BuscarProducto);
             Controls.Add(btnMenu_AgregarProducto);
             Controls.Add(lblMenu_Bienvenido);
-            Name = "FrmMenu";
+            Name = "FrmMenuAdmin";
             Text = "Menu";
             ResumeLayout(false);
             PerformLayout();
@@ -140,5 +153,6 @@
         public Button btnMenu_AgregarCategoria;
         public Button btnMenu_BuscarCategoria;
         public Button btnMenu_CrearUsuario;
+        public Button btnMenu_VerTablasInfo;
     }
 }
