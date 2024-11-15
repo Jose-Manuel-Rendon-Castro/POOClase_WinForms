@@ -95,8 +95,8 @@
         #endregion
 
         private Label label1;
-        private ComboBox combxTablasInfo_NombreTabla;
         private DataGridView dataGridView1;
-        private Button btnTablaInfo_Salir;
+        public ComboBox combxTablasInfo_NombreTabla;
+        public Button btnTablaInfo_Salir;
     }
 }
