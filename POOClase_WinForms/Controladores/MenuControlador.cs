@@ -1,4 +1,5 @@
 ﻿using POOClase_WinForms.Vistas;
+using POOClase_WinForms.Vistas.Vistas_Administrador;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -14,6 +15,7 @@ namespace POOClase_WinForms.Controladores
             _frmMenu.btnMenu_BuscarCategoria.Click += btnMenu_BuscarCategoria_Click;
             _frmMenu.btnMenu_cerrarSesion.Click += btnMenu_cerrarSesion_Click;
             _frmMenu.btnMenu_CrearUsuario.Click += btnMenu_CrearUsuario_Click;
+            _frmMenu.btnMenu_VerTablasInfo.Click += btnMenu_VerTablasInfo_Click;
         }
         private void btnMenu_AgregarProducto_Click(object sender, EventArgs e)
         {
@@ -40,6 +42,11 @@ namespace POOClase_WinForms.Controladores
         {
             FrmCrearUsuario frmCrearUsuario = new FrmCrearUsuario();
             frmCrearUsuario.ShowDialog();
+        }
+        private void btnMenu_VerTablasInfo_Click(object sender, EventArgs e)
+        {
+            FrmTablasInfo frmTablasInfo = new FrmTablasInfo();
+            frmTablasInfo.ShowDialog();
         }
         private void btnMenu_cerrarSesion_Click(object sender, EventArgs e)
         {

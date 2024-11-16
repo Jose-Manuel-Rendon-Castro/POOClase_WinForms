@@ -32,6 +32,7 @@
             combxTablasInfo_NombreTabla = new ComboBox();
             dtgvTablasInfo_Tabla = new DataGridView();
             btnTablaInfo_Salir = new Button();
+            btnTablasInfo_Mostrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvTablasInfo_Tabla).BeginInit();
             SuspendLayout();
             // 
@@ -76,11 +77,23 @@
             btnTablaInfo_Salir.Text = "SALIR";
             btnTablaInfo_Salir.UseVisualStyleBackColor = false;
             // 
+            // btnTablasInfo_Mostrar
+            // 
+            btnTablasInfo_Mostrar.BackColor = SystemColors.ActiveCaption;
+            btnTablasInfo_Mostrar.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTablasInfo_Mostrar.Location = new Point(219, 35);
+            btnTablasInfo_Mostrar.Name = "btnTablasInfo_Mostrar";
+            btnTablasInfo_Mostrar.Size = new Size(254, 40);
+            btnTablasInfo_Mostrar.TabIndex = 4;
+            btnTablasInfo_Mostrar.Text = "Mostrar Tabla";
+            btnTablasInfo_Mostrar.UseVisualStyleBackColor = false;
+            // 
             // FrmTablasInfo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1087, 553);
+            Controls.Add(btnTablasInfo_Mostrar);
             Controls.Add(btnTablaInfo_Salir);
             Controls.Add(dtgvTablasInfo_Tabla);
             Controls.Add(combxTablasInfo_NombreTabla);
@@ -98,5 +111,6 @@
         public ComboBox combxTablasInfo_NombreTabla;
         public Button btnTablaInfo_Salir;
         public DataGridView dtgvTablasInfo_Tabla;
+        public Button btnTablasInfo_Mostrar;
     }
 }
