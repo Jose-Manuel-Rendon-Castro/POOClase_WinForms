@@ -1,4 +1,5 @@
-﻿namespace POOClase_WinForms
+﻿
+namespace POOClase_WinForms
 {
     partial class FrmAgregarProducto
     {
@@ -106,9 +107,9 @@
             lblAgregarProducto_PrecioMinimo.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAgregarProducto_PrecioMinimo.Location = new Point(237, 183);
             lblAgregarProducto_PrecioMinimo.Name = "lblAgregarProducto_PrecioMinimo";
-            lblAgregarProducto_PrecioMinimo.Size = new Size(55, 21);
+            lblAgregarProducto_PrecioMinimo.Size = new Size(125, 21);
             lblAgregarProducto_PrecioMinimo.TabIndex = 9;
-            lblAgregarProducto_PrecioMinimo.Text = "label1";
+            lblAgregarProducto_PrecioMinimo.Text = "Precio Mínimo:";
             // 
             // combxCategoriasDisponibles
             // 

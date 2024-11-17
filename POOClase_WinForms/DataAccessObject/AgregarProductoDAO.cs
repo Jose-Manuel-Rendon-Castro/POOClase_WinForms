@@ -57,7 +57,6 @@ namespace POOClase_WinForms.AccessData
                 }
             }
         }
-
         private static bool CheckIfCategory(FrmAgregarProducto _frmAgregarProducto, string input_nombreCategoria)
         {
             string selectQuery = "SELECT COUNT(*) FROM categoria WHERE nombre = @nombre";
@@ -167,5 +166,29 @@ namespace POOClase_WinForms.AccessData
             }
             return categorias;
         }
+        public static decimal ObtenerPrecioMinimoPorCategoria(string nombreCategoria)
+        {
+            string selectQuery = "SELECT precio_minimo FROM categoria WHERE nombre = @nombre";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
+                {
+                    selectCommand.Parameters.AddWithValue("@nombre", nombreCategoria);
+
+                    object result = selectCommand.ExecuteScalar();
+                    if (result != null && decimal.TryParse(result.ToString(), out decimal precioMinimo))
+                    {
+                        return precioMinimo;
+                    }
+                    else
+                    {
+                        throw new Exception("No se pudo obtener el precio mínimo para la categoría seleccionada.");
+                    }
+                }
+            }
+        }
+
     }
 }
