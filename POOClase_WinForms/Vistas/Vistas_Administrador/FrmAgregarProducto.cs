@@ -11,5 +11,6 @@ namespace POOClase_WinForms
             InitializeComponent();
             _agregarProductoControllador = new AgregarProductoControllador(this);
         }
+
     }
 }
