@@ -13,7 +13,7 @@ namespace POOClase_WinForms.Controladores
             _frmAgregarProducto.combxCategoriasDisponibles.SelectedIndexChanged += combxCategoriasDisponibles_SelectedIndexChanged;
             LlenarComboBoxCategorias();
         }
-        private void btnAgregarProcuto_Agregar_Click(object sender, EventArgs e)
+        private void btnAgregarProcuto_Agregar_Click(object? sender, EventArgs? e)
         {
             AgregarProductoDAO.AgregarPrducto(_frmAgregarProducto);
             _frmAgregarProducto.Close();
@@ -30,9 +30,9 @@ namespace POOClase_WinForms.Controladores
                 MessageBox.Show($"Error al cargar las categorías: {ex.Message}");
             }
         }
-        private void combxCategoriasDisponibles_SelectedIndexChanged(object sender, EventArgs e)
+        private void combxCategoriasDisponibles_SelectedIndexChanged(object? sender, EventArgs? e)
         {
-            string categoriaSeleccionada = _frmAgregarProducto.combxCategoriasDisponibles.SelectedItem?.ToString();
+            string? categoriaSeleccionada = _frmAgregarProducto.combxCategoriasDisponibles.SelectedItem?.ToString();
 
             if (!string.IsNullOrEmpty(categoriaSeleccionada))
             {

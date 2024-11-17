@@ -14,7 +14,7 @@ namespace POOClase_WinForms.AccessData
 
             string input_nombre = _frmAgregarProducto.txtBAgregarProducto_Nombre.Text;
             decimal input_precio = Convert.ToDecimal(_frmAgregarProducto.txtBAgregarProducto_Precio.Text);
-            string input_categoria = _frmAgregarProducto.combxCategoriasDisponibles.SelectedItem.ToString(); // Nuevo: obtenemos el valor del ComboBox.
+            string? input_categoria = _frmAgregarProducto?.combxCategoriasDisponibles.SelectedItem?.ToString(); // Nuevo: obtenemos el valor del ComboBox.
             string full_id;
             Producto producto = new Producto();
 
@@ -57,7 +57,7 @@ namespace POOClase_WinForms.AccessData
                 }
             }
         }
-        private static bool CheckIfCategory(FrmAgregarProducto _frmAgregarProducto, string input_nombreCategoria)
+        private static bool CheckIfCategory(FrmAgregarProducto? _frmAgregarProducto, string? input_nombreCategoria)
         {
             string selectQuery = "SELECT COUNT(*) FROM categoria WHERE nombre = @nombre";
 
@@ -73,7 +73,7 @@ namespace POOClase_WinForms.AccessData
                 }
             }            
         }
-        private static bool CheckIfHigherMinimumPrice(FrmAgregarProducto _frmAgregarProducto, string input_nombreCategoria)
+        private static bool CheckIfHigherMinimumPrice(FrmAgregarProducto? _frmAgregarProducto, string? input_nombreCategoria)
         {
             string selectQuery = "SELECT precio_minimo FROM categoria WHERE nombre = @nombre";
 
@@ -124,7 +124,7 @@ namespace POOClase_WinForms.AccessData
                 }
             }
         }
-        private static int GetID(FrmAgregarProducto _frmAgregarProducto, string input_nombreCategoria)
+        private static int GetID(FrmAgregarProducto? _frmAgregarProducto, string? input_nombreCategoria)
         {
             string getNumberQuery = "SELECT COUNT(*) FROM producto p JOIN categoria c ON p.categoria = c.id WHERE c.nombre = @nombre GROUP BY p.categoria;";
 
