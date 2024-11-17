@@ -40,9 +40,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(10, 7);
             label1.Name = "label1";
-            label1.Size = new Size(74, 27);
+            label1.Size = new Size(59, 22);
             label1.TabIndex = 0;
             label1.Text = "Tabla:";
             // 
@@ -52,27 +52,30 @@
             combxTablasInfo_NombreTabla.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             combxTablasInfo_NombreTabla.FormattingEnabled = true;
             combxTablasInfo_NombreTabla.Items.AddRange(new object[] { "categoria", "producto" });
-            combxTablasInfo_NombreTabla.Location = new Point(12, 39);
+            combxTablasInfo_NombreTabla.Location = new Point(10, 29);
+            combxTablasInfo_NombreTabla.Margin = new Padding(3, 2, 3, 2);
             combxTablasInfo_NombreTabla.Name = "combxTablasInfo_NombreTabla";
-            combxTablasInfo_NombreTabla.Size = new Size(167, 35);
+            combxTablasInfo_NombreTabla.Size = new Size(147, 29);
             combxTablasInfo_NombreTabla.TabIndex = 1;
             // 
             // dtgvTablasInfo_Tabla
             // 
             dtgvTablasInfo_Tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvTablasInfo_Tabla.Location = new Point(12, 118);
+            dtgvTablasInfo_Tabla.Location = new Point(10, 88);
+            dtgvTablasInfo_Tabla.Margin = new Padding(3, 2, 3, 2);
             dtgvTablasInfo_Tabla.Name = "dtgvTablasInfo_Tabla";
             dtgvTablasInfo_Tabla.RowHeadersWidth = 51;
-            dtgvTablasInfo_Tabla.Size = new Size(1063, 423);
+            dtgvTablasInfo_Tabla.Size = new Size(930, 317);
             dtgvTablasInfo_Tabla.TabIndex = 2;
             // 
             // btnTablaInfo_Salir
             // 
             btnTablaInfo_Salir.BackColor = Color.IndianRed;
             btnTablaInfo_Salir.Font = new Font("Microsoft YaHei UI", 12F);
-            btnTablaInfo_Salir.Location = new Point(872, 32);
+            btnTablaInfo_Salir.Location = new Point(763, 24);
+            btnTablaInfo_Salir.Margin = new Padding(3, 2, 3, 2);
             btnTablaInfo_Salir.Name = "btnTablaInfo_Salir";
-            btnTablaInfo_Salir.Size = new Size(203, 46);
+            btnTablaInfo_Salir.Size = new Size(178, 34);
             btnTablaInfo_Salir.TabIndex = 3;
             btnTablaInfo_Salir.Text = "SALIR";
             btnTablaInfo_Salir.UseVisualStyleBackColor = false;
@@ -81,23 +84,25 @@
             // 
             btnTablasInfo_Mostrar.BackColor = SystemColors.ActiveCaption;
             btnTablasInfo_Mostrar.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTablasInfo_Mostrar.Location = new Point(219, 35);
+            btnTablasInfo_Mostrar.Location = new Point(192, 26);
+            btnTablasInfo_Mostrar.Margin = new Padding(3, 2, 3, 2);
             btnTablasInfo_Mostrar.Name = "btnTablasInfo_Mostrar";
-            btnTablasInfo_Mostrar.Size = new Size(254, 40);
+            btnTablasInfo_Mostrar.Size = new Size(222, 30);
             btnTablasInfo_Mostrar.TabIndex = 4;
             btnTablasInfo_Mostrar.Text = "Mostrar Tabla";
             btnTablasInfo_Mostrar.UseVisualStyleBackColor = false;
             // 
             // FrmTablasInfo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1087, 553);
+            ClientSize = new Size(951, 415);
             Controls.Add(btnTablasInfo_Mostrar);
             Controls.Add(btnTablaInfo_Salir);
             Controls.Add(dtgvTablasInfo_Tabla);
             Controls.Add(combxTablasInfo_NombreTabla);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmTablasInfo";
             Text = "FrmTablasInfo";
             ((System.ComponentModel.ISupportInitialize)dtgvTablasInfo_Tabla).EndInit();

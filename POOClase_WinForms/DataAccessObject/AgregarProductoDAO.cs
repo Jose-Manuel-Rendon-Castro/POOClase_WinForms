@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using POOClase_WinForms.Modelos;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 
 namespace POOClase_WinForms.AccessData
@@ -8,12 +9,12 @@ namespace POOClase_WinForms.AccessData
     {
         public static void AgregarPrducto(FrmAgregarProducto _frmAgregarProducto)
         {
-            string insertQuery = "INSERT INTO producto (id, nombre, precio, categoria, existencias) VALUES (@id, @nombre, @precio, @producto.categoria, 0)";
-            string selectQuery = "SELECT id FROM categoria WHERE categoria.nombre = @categoria.nombre";
+            string insertQuery = "INSERT INTO producto (id, nombre, precio, categoria, existencias) VALUES (@id, @nombre, @precio, @producto_categoria, 0)";
+            string selectQuery = "SELECT id FROM categoria WHERE nombre = @nombre";
 
             string input_nombre = _frmAgregarProducto.txtBAgregarProducto_Nombre.Text;
             decimal input_precio = Convert.ToDecimal(_frmAgregarProducto.txtBAgregarProducto_Precio.Text);
-            string input_categoria = _frmAgregarProducto.txtBAgregarProducto_Categoria.Text;
+            string input_categoria = _frmAgregarProducto.combxCategoriasDisponibles.SelectedItem.ToString(); // Nuevo: obtenemos el valor del ComboBox.
             string full_id;
             Producto producto = new Producto();
 
@@ -22,15 +23,15 @@ namespace POOClase_WinForms.AccessData
                 conn.Open();
                 using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
                 {
-                    selectCommand.Parameters.AddWithValue("@categoria.nombre", input_categoria);
+                    selectCommand.Parameters.AddWithValue("@nombre", input_categoria);
                     int categoria_id = (int)selectCommand.ExecuteScalar();
 
                     using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, conn))
                     {
-                    
                         insertCommand.Parameters.AddWithValue("@nombre", input_nombre);
                         insertCommand.Parameters.AddWithValue("@precio", input_precio);
-                        insertCommand.Parameters.AddWithValue("@producto.categoria", categoria_id);
+                        insertCommand.Parameters.AddWithValue("@producto_categoria", categoria_id);
+
                         if (CheckIfCategory(_frmAgregarProducto, input_categoria))
                         {
                             if (CheckIfHigherMinimumPrice(_frmAgregarProducto, input_categoria))
@@ -43,13 +44,13 @@ namespace POOClase_WinForms.AccessData
                             }
                             else
                             {
-                                MessageBox.Show("Precio por debajo del precio minimo de la categoria");
+                                MessageBox.Show("Precio por debajo del precio mínimo de la categoría.");
                                 return;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Categoria inexisente");
+                            MessageBox.Show("Categoría inexistente.");
                             return;
                         }
                     }
@@ -130,11 +131,11 @@ namespace POOClase_WinForms.AccessData
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open(); 
+                conn.Open();
                 using (MySqlCommand getNumberCommand = new MySqlCommand(getNumberQuery, conn))
                 {
                     getNumberCommand.Parameters.AddWithValue("@nombre", input_nombreCategoria.Trim());
-                    if(getNumberCommand.ExecuteScalar() == null)
+                    if (getNumberCommand.ExecuteScalar() == null)
                     {
                         return 1;
                     }
@@ -144,6 +145,27 @@ namespace POOClase_WinForms.AccessData
                     }
                 }
             }
+        }
+        public static List<string> ObtenerCategorias()
+        {
+            string selectQuery = "SELECT nombre FROM categoria";
+            List<string> categorias = new List<string>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
+                {
+                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            categorias.Add(reader.GetString("nombre"));
+                        }
+                    }
+                }
+            }
+            return categorias;
         }
     }
 }
