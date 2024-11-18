@@ -6,23 +6,22 @@ namespace POOClase_WinForms.DataAccessObject
 {
     public class TablasInfoDAO : ConnectionString
     {
-        public static void MostrarInfo(DataGridView tableInfo, string nombreTabla)
+        public static void MostrarTabla(DataGridView dataGridView, string nombreTabla, string id, string nombreElemento, string nombreCategoria, string precioDe, string precioHasta)
         {
             string selectQuery = $"SELECT * FROM {nombreTabla}";
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            List<string> condiciones = new List<string>();
+
+            if (!string.IsNullOrEmpty(id))
             {
-                conn.Open();
-                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
+                if (int.TryParse(id, out int ID))
                 {
-                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                    {
-                        using (DataTable dataTable = new DataTable())
-                        {
-                            dataTable.Load(reader);
-                            tableInfo.DataSource = dataTable; 
-                        }
-                    }
+                    condiciones.Add($"id = {ID}");
                 }
+                else { return; }
+            }
+            if (!string.IsNullOrEmpty(nombreCategoria))
+            {
+                condiciones.Add(""); 
             }
         }
     }

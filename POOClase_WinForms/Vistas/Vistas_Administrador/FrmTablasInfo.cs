@@ -10,5 +10,10 @@ namespace POOClase_WinForms.Vistas.Vistas_Administrador
             InitializeComponent();
             _tablasInfoControlador = new TablasInfoControlador(this);
         }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
