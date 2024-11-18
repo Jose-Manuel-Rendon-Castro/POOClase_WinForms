@@ -64,7 +64,6 @@
             combxTablasInfo_NombreTabla.DropDownStyle = ComboBoxStyle.DropDownList;
             combxTablasInfo_NombreTabla.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             combxTablasInfo_NombreTabla.FormattingEnabled = true;
-            combxTablasInfo_NombreTabla.Items.AddRange(new object[] { "categorias", "productos" });
             combxTablasInfo_NombreTabla.Location = new Point(11, 127);
             combxTablasInfo_NombreTabla.Name = "combxTablasInfo_NombreTabla";
             combxTablasInfo_NombreTabla.Size = new Size(213, 35);

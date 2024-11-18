@@ -1,4 +1,5 @@
 ﻿using POOClase_WinForms.AccessData;
+using POOClase_WinForms.DataAccessObject.ModelosDAO;
 using POOClase_WinForms.Modelos;
 
 namespace POOClase_WinForms.Controladores
@@ -22,7 +23,7 @@ namespace POOClase_WinForms.Controladores
         {
             try
             {
-                var categorias = AgregarProductoDAO.ObtenerCategorias();
+                var categorias = CategoriaDAO.ObtenerCategorias();
                 _frmAgregarProducto.combxCategoriasDisponibles.Items.AddRange(categorias.ToArray());
             }
             catch (Exception ex)
