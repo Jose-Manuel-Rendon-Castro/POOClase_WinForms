@@ -44,6 +44,7 @@
             lblTablaInfo_PrecioDe = new Label();
             label5 = new Label();
             numupTablasInfo_Hasta = new NumericUpDown();
+            btnTablasInfo_Limpiar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvTablasInfo_Tabla).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numupTablasInfo_De).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numupTablasInfo_Hasta).BeginInit();
@@ -95,7 +96,7 @@
             btnTablasInfo_Mostrar.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTablasInfo_Mostrar.Location = new Point(970, 12);
             btnTablasInfo_Mostrar.Name = "btnTablasInfo_Mostrar";
-            btnTablasInfo_Mostrar.Size = new Size(254, 263);
+            btnTablasInfo_Mostrar.Size = new Size(254, 121);
             btnTablasInfo_Mostrar.TabIndex = 4;
             btnTablasInfo_Mostrar.Text = "Mostrar Tabla";
             btnTablasInfo_Mostrar.UseVisualStyleBackColor = false;
@@ -197,11 +198,23 @@
             numupTablasInfo_Hasta.TabIndex = 15;
             numupTablasInfo_Hasta.ValueChanged += numericUpDown2_ValueChanged;
             // 
+            // btnTablasInfo_Limpiar
+            // 
+            btnTablasInfo_Limpiar.BackColor = SystemColors.ActiveCaption;
+            btnTablasInfo_Limpiar.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTablasInfo_Limpiar.Location = new Point(970, 168);
+            btnTablasInfo_Limpiar.Name = "btnTablasInfo_Limpiar";
+            btnTablasInfo_Limpiar.Size = new Size(254, 121);
+            btnTablasInfo_Limpiar.TabIndex = 17;
+            btnTablasInfo_Limpiar.Text = "Limpiar campos";
+            btnTablasInfo_Limpiar.UseVisualStyleBackColor = false;
+            // 
             // FrmTablasInfo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1471, 770);
+            Controls.Add(btnTablasInfo_Limpiar);
             Controls.Add(label5);
             Controls.Add(numupTablasInfo_Hasta);
             Controls.Add(lblTablaInfo_PrecioDe);
@@ -246,5 +259,6 @@
         public NumericUpDown numupTablasInfo_De;
         public NumericUpDown numupTablasInfo_Hasta;
         private NumericUpDown numericUpDown2;
+        public Button btnTablasInfo_Limpiar;
     }
 }

@@ -2,6 +2,6 @@
 {
     public class EmptyFieldException : Exception
     {
-        public EmptyFieldException() : base("Ingrese un valor en el campo para continuar") { }
+        public EmptyFieldException() : base("Llene los campos obligatorios para continuar") { }
     }
 }
