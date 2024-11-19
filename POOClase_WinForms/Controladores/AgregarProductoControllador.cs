@@ -10,11 +10,11 @@ namespace POOClase_WinForms.Controladores
         public AgregarProductoControllador(FrmAgregarProducto frmAgregarProducto)
         {
             _frmAgregarProducto = frmAgregarProducto;
-            _frmAgregarProducto.btnAgregarProducto_Agregar.Click += btnAgregarProcuto_Agregar_Click;
+            _frmAgregarProducto.btnAgregarProducto_Agregar.Click += btnAgregarProducto_Agregar_Click;
             _frmAgregarProducto.combxCategoriasDisponibles.SelectedIndexChanged += combxCategoriasDisponibles_SelectedIndexChanged;
             LlenarComboBoxCategorias();
         }
-        private void btnAgregarProcuto_Agregar_Click(object? sender, EventArgs? e)
+        private void btnAgregarProducto_Agregar_Click(object? sender, EventArgs? e)
         {
             AgregarProductoDAO.AgregarPrducto(_frmAgregarProducto);
             _frmAgregarProducto.Close();
