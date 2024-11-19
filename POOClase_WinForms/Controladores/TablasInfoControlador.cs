@@ -76,7 +76,7 @@ namespace POOClase_WinForms.Controladores
             }
             catch (Exception ex)
             {
-                MessageBox.Show("El valor máximo del rango de precio no puede ser menor que el valor mínimo. Por favor, ajuste el rango de precio", 
+                MessageBox.Show("El valor máximo del rango de precio no puede ser menor que el valor mínimo. Por favor, ajuste los valores e intentenuevamente", 
                     "Error en rango de precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -90,7 +90,7 @@ namespace POOClase_WinForms.Controladores
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar las categorias {ex.Message}");
+                MessageBox.Show($"Error al cargar las tablas {ex.Message}");
             }
         }
             
