@@ -51,17 +51,13 @@ namespace POOClase_WinForms.DataAccessObject
             {
                 if (decimal.TryParse(precioDe, out decimal numPrecioDe) && decimal.TryParse(precioHasta, out decimal numPrecioHasta))
                 {
-                    if (numPrecioHasta < numPrecioDe) { return selectQuery; }
+                    if (nombreTabla != "categorias")
+                    {
+                        condiciones.Add($"Precio BETWEEN {numPrecioDe} AND {numPrecioHasta}");
+                    }
                     else
                     {
-                        if (nombreTabla != "categorias")
-                        {
-                            condiciones.Add($"Precio BETWEEN {numPrecioDe} AND {numPrecioHasta}");
-                        }
-                        else
-                        {
-                            condiciones.Add($"Precio_Minimo BETWEEN {numPrecioDe} AND {numPrecioHasta}");
-                        }
+                        condiciones.Add($"Precio_Minimo BETWEEN {numPrecioDe} AND {numPrecioHasta}");
                     }
                 }
             }

@@ -168,6 +168,7 @@
             // numupTablasInfo_De
             // 
             numupTablasInfo_De.Location = new Point(637, 218);
+            numupTablasInfo_De.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numupTablasInfo_De.Name = "numupTablasInfo_De";
             numupTablasInfo_De.Size = new Size(84, 27);
             numupTablasInfo_De.TabIndex = 13;
@@ -193,6 +194,7 @@
             // numupTablasInfo_Hasta
             // 
             numupTablasInfo_Hasta.Location = new Point(794, 218);
+            numupTablasInfo_Hasta.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numupTablasInfo_Hasta.Name = "numupTablasInfo_Hasta";
             numupTablasInfo_Hasta.Size = new Size(84, 27);
             numupTablasInfo_Hasta.TabIndex = 15;

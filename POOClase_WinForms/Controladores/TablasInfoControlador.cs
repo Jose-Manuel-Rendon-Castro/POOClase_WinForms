@@ -50,6 +50,10 @@ namespace POOClase_WinForms.Controladores
                 {
                     throw new EmptyFieldException();
                 }
+                if (_frmTablasInfo.numupTablasInfo_De.Value > _frmTablasInfo.numupTablasInfo_Hasta.Value)
+                {
+                    throw new Exception();
+                }
 
                 TablasInfoDAO.MostrarTabla
                 (
@@ -61,10 +65,19 @@ namespace POOClase_WinForms.Controladores
                     _frmTablasInfo.numupTablasInfo_De.Text,
                     _frmTablasInfo.numupTablasInfo_Hasta.Text
                 );
+                if (_frmTablasInfo.dtgvTablasInfo_Tabla.RowCount == 0)
+                {
+                    MessageBox.Show("No se encontraron datos", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (EmptyFieldException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El valor máximo del rango de precio no puede ser menor que el valor mínimo. Por favor, ajuste el rango de precio", 
+                    "Error en rango de precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
