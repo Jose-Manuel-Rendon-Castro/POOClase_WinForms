@@ -46,7 +46,7 @@ namespace POOClase_WinForms.Controladores
         {
             try
             {
-                if (_frmTablasInfo.combxTablasInfo_NombreTabla.Text == null)                
+                if (_frmTablasInfo.combxTablasInfo_NombreTabla.SelectedItem == null)                
                 {
                     throw new EmptyFieldException();
                 }
