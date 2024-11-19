@@ -43,9 +43,9 @@ namespace POOClase_WinForms
             // 
             lblAgregarProducto_Nombre.AutoSize = true;
             lblAgregarProducto_Nombre.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAgregarProducto_Nombre.Location = new Point(10, 67);
+            lblAgregarProducto_Nombre.Location = new Point(11, 89);
             lblAgregarProducto_Nombre.Name = "lblAgregarProducto_Nombre";
-            lblAgregarProducto_Nombre.Size = new Size(212, 25);
+            lblAgregarProducto_Nombre.Size = new Size(254, 31);
             lblAgregarProducto_Nombre.TabIndex = 0;
             lblAgregarProducto_Nombre.Text = "Nombre de producto:";
             // 
@@ -54,9 +54,9 @@ namespace POOClase_WinForms
             lblAgregarProducto_Precio.Anchor = AnchorStyles.Right;
             lblAgregarProducto_Precio.AutoSize = true;
             lblAgregarProducto_Precio.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAgregarProducto_Precio.Location = new Point(148, 148);
+            lblAgregarProducto_Precio.Location = new Point(169, 197);
             lblAgregarProducto_Precio.Name = "lblAgregarProducto_Precio";
-            lblAgregarProducto_Precio.Size = new Size(82, 25);
+            lblAgregarProducto_Precio.Size = new Size(96, 31);
             lblAgregarProducto_Precio.TabIndex = 1;
             lblAgregarProducto_Precio.Text = "Precio: ";
             // 
@@ -64,29 +64,27 @@ namespace POOClase_WinForms
             // 
             lblAgregarProducto_Categoria.AutoSize = true;
             lblAgregarProducto_Categoria.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAgregarProducto_Categoria.Location = new Point(120, 242);
+            lblAgregarProducto_Categoria.Location = new Point(137, 323);
             lblAgregarProducto_Categoria.Name = "lblAgregarProducto_Categoria";
-            lblAgregarProducto_Categoria.Size = new Size(108, 25);
+            lblAgregarProducto_Categoria.Size = new Size(128, 31);
             lblAgregarProducto_Categoria.TabIndex = 3;
             lblAgregarProducto_Categoria.Text = "Categoría:";
             // 
             // txtBAgregarProducto_Nombre
             // 
             txtBAgregarProducto_Nombre.BackColor = Color.Snow;
-            txtBAgregarProducto_Nombre.Location = new Point(237, 71);
-            txtBAgregarProducto_Nombre.Margin = new Padding(3, 2, 3, 2);
+            txtBAgregarProducto_Nombre.Location = new Point(271, 95);
             txtBAgregarProducto_Nombre.Name = "txtBAgregarProducto_Nombre";
-            txtBAgregarProducto_Nombre.Size = new Size(260, 23);
+            txtBAgregarProducto_Nombre.Size = new Size(297, 27);
             txtBAgregarProducto_Nombre.TabIndex = 4;
             txtBAgregarProducto_Nombre.UseWaitCursor = true;
             // 
             // btnAgregarProducto_Agregar
             // 
             btnAgregarProducto_Agregar.BackColor = SystemColors.ActiveCaption;
-            btnAgregarProducto_Agregar.Location = new Point(528, 126);
-            btnAgregarProducto_Agregar.Margin = new Padding(3, 2, 3, 2);
+            btnAgregarProducto_Agregar.Location = new Point(603, 168);
             btnAgregarProducto_Agregar.Name = "btnAgregarProducto_Agregar";
-            btnAgregarProducto_Agregar.Size = new Size(161, 72);
+            btnAgregarProducto_Agregar.Size = new Size(184, 96);
             btnAgregarProducto_Agregar.TabIndex = 8;
             btnAgregarProducto_Agregar.Text = "Agregar";
             btnAgregarProducto_Agregar.UseVisualStyleBackColor = false;
@@ -94,10 +92,9 @@ namespace POOClase_WinForms
             // txtBAgregarProducto_Precio
             // 
             txtBAgregarProducto_Precio.BackColor = Color.Snow;
-            txtBAgregarProducto_Precio.Location = new Point(237, 152);
-            txtBAgregarProducto_Precio.Margin = new Padding(3, 2, 3, 2);
+            txtBAgregarProducto_Precio.Location = new Point(271, 203);
             txtBAgregarProducto_Precio.Name = "txtBAgregarProducto_Precio";
-            txtBAgregarProducto_Precio.Size = new Size(260, 23);
+            txtBAgregarProducto_Precio.Size = new Size(297, 27);
             txtBAgregarProducto_Precio.TabIndex = 5;
             txtBAgregarProducto_Precio.UseWaitCursor = true;
             // 
@@ -105,26 +102,28 @@ namespace POOClase_WinForms
             // 
             lblAgregarProducto_PrecioMinimo.AutoSize = true;
             lblAgregarProducto_PrecioMinimo.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAgregarProducto_PrecioMinimo.Location = new Point(237, 183);
+            lblAgregarProducto_PrecioMinimo.Location = new Point(271, 244);
             lblAgregarProducto_PrecioMinimo.Name = "lblAgregarProducto_PrecioMinimo";
-            lblAgregarProducto_PrecioMinimo.Size = new Size(125, 21);
+            lblAgregarProducto_PrecioMinimo.Size = new Size(156, 27);
             lblAgregarProducto_PrecioMinimo.TabIndex = 9;
             lblAgregarProducto_PrecioMinimo.Text = "Precio Mínimo:";
             // 
             // combxCategoriasDisponibles
             // 
+            combxCategoriasDisponibles.DropDownStyle = ComboBoxStyle.DropDownList;
             combxCategoriasDisponibles.FormattingEnabled = true;
-            combxCategoriasDisponibles.Location = new Point(237, 247);
+            combxCategoriasDisponibles.Location = new Point(271, 329);
+            combxCategoriasDisponibles.Margin = new Padding(3, 4, 3, 4);
             combxCategoriasDisponibles.Name = "combxCategoriasDisponibles";
-            combxCategoriasDisponibles.Size = new Size(173, 23);
+            combxCategoriasDisponibles.Size = new Size(197, 28);
             combxCategoriasDisponibles.TabIndex = 10;
             // 
             // FrmAgregarProducto
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(combxCategoriasDisponibles);
             Controls.Add(lblAgregarProducto_PrecioMinimo);
             Controls.Add(btnAgregarProducto_Agregar);
@@ -133,7 +132,6 @@ namespace POOClase_WinForms
             Controls.Add(lblAgregarProducto_Categoria);
             Controls.Add(lblAgregarProducto_Precio);
             Controls.Add(lblAgregarProducto_Nombre);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmAgregarProducto";
             Text = "FrmAgregarProducto";
             TransparencyKey = Color.White;

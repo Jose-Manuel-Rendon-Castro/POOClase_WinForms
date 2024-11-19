@@ -144,28 +144,7 @@ namespace POOClase_WinForms.AccessData
                     }
                 }
             }
-        }
-        public static List<string> ObtenerCategorias()
-        {
-            string selectQuery = "SELECT nombre FROM categoria";
-            List<string> categorias = new List<string>();
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
-                {
-                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            categorias.Add(reader.GetString("nombre"));
-                        }
-                    }
-                }
-            }
-            return categorias;
-        }
+        }        
         public static decimal ObtenerPrecioMinimoPorCategoria(string nombreCategoria)
         {
             string selectQuery = "SELECT precio_minimo FROM categoria WHERE nombre = @nombre";
