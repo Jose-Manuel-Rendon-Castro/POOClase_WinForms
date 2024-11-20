@@ -40,16 +40,6 @@ namespace POOClase_WinForms.AccessData
                                 producto = (Producto)ProductoDAO.GetObjectProducto(nombre);
                                 MessageBox.Show($"Se ha agregado el producto.\nID: {producto.id}\nNombre: {producto.nombre}\nCategoria: {producto.categoria} ({producto_categoria})\nPrecio: ${producto.precio}\nCodigo de barra: {producto.codigoBarra}");
                             }
-                            else
-                            {
-                                MessageBox.Show("Precio por debajo del precio mínimo de la categoría.");
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Categoría inexistente.");
-                            return;
                         }
                     }
                 }

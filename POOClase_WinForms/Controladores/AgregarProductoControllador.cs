@@ -31,7 +31,10 @@ namespace POOClase_WinForms.Controladores
                 {
                     throw new Exception("Categoria inexistente");
                 }
-
+                if (CategoriaDAO.CheckIfHigherMinimumPrice(_frmAgregarProducto.txtBAgregarProducto_Precio.Text, _frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                {
+                    throw new Exception("Precio por debajo del precio mínimo de la categoría.");
+                }
                 AgregarProductoDAO.AgregarProducto(
                     _frmAgregarProducto.txtBAgregarProducto_Nombre.Text,
                     _frmAgregarProducto.txtBAgregarProducto_Precio.Text,
@@ -45,7 +48,7 @@ namespace POOClase_WinForms.Controladores
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message, "Categoria no encontrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void LlenarComboBoxCategorias()
