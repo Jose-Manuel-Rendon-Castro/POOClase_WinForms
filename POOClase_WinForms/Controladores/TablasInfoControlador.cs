@@ -26,11 +26,18 @@ namespace POOClase_WinForms.Controladores
             if (_frmTablasInfo.combxTablasInfo_NombreTabla.SelectedItem?.ToString() == "categorias")
             {
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Text = string.Empty;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Text = string.Empty;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text = string.Empty; 
+
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Enabled = false;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Enabled = false;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Enabled = false;
             }
             else
             {
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Enabled = true;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Enabled = true;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Enabled = true;
             }
         }
         private void btnTablasInfo_Limpiar_Click (object? sender, EventArgs? e)
@@ -41,6 +48,8 @@ namespace POOClase_WinForms.Controladores
             _frmTablasInfo.txtBTablasInfo_NombreElemento.Text = string.Empty;
             _frmTablasInfo.numupTablasInfo_De.Text = string.Empty;
             _frmTablasInfo.numupTablasInfo_Hasta.Text = string.Empty;
+            _frmTablasInfo.combxTablasInfo_Existencias_Condicion.SelectedItem = null;
+            _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text = string.Empty;
         }
         private void btnTablasInfo_Mostrar_Click (object? sender, EventArgs? e)
         {
@@ -54,6 +63,14 @@ namespace POOClase_WinForms.Controladores
                 {
                     throw new Exception();
                 }
+                if (!string.IsNullOrEmpty(_frmTablasInfo.txtBTablasInfo_ID.Text) && !int.TryParse(_frmTablasInfo.txtBTablasInfo_ID.Text, out int idVal))
+                {
+                    throw new NotParsedException("Añada un valor numérico porfavor para el campo ID");
+                }
+                if (!string.IsNullOrEmpty(_frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text) && !int.TryParse(_frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text, out int existVal))
+                {
+                    throw new NotParsedException("Añada un valor numérico para el campo Existencias_Valor");
+                }
 
                 TablasInfoDAO.MostrarTabla
                 (
@@ -63,7 +80,9 @@ namespace POOClase_WinForms.Controladores
                     _frmTablasInfo.txtBTablasInfo_NombreElemento.Text,
                     _frmTablasInfo.txtBTablasInfo_NombreCategoria.Text,
                     _frmTablasInfo.numupTablasInfo_De.Text,
-                    _frmTablasInfo.numupTablasInfo_Hasta.Text
+                    _frmTablasInfo.numupTablasInfo_Hasta.Text,
+                    _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Text,
+                    _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text
                 );
                 if (_frmTablasInfo.dtgvTablasInfo_Tabla.RowCount == 0)
                 {
@@ -74,10 +93,14 @@ namespace POOClase_WinForms.Controladores
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (Exception ex)
+            catch (MaxValueLowerThanMinValueException)
             {
                 MessageBox.Show("El valor máximo del rango de precio no puede ser menor que el valor mínimo. Por favor, ajuste los valores e intentenuevamente", 
                     "Error en rango de precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (NotParsedException ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Valor no numérico", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
