@@ -15,13 +15,13 @@ namespace POOClase_WinForms.Controladores
             _frmBuscarCategoria.btnBuscarCategoria_Salir.Click += btnBuscarCategoria_Salir_Click;
         }
 
-        private void txtBBuscarCategoria_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void txtBBuscarCategoria_PreviewKeyDown(object? sender, PreviewKeyDownEventArgs? e)
         {
             if(e.KeyCode == Keys.Enter)
             {
-                if(BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria) != null)
+                if(BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria.txtBBuscarCategoria.Text) != null)
                 {
-                    Categoria? categoria= BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria);
+                    Categoria? categoria= BuscarCategoriaDAO.BuscarCategoria(_frmBuscarCategoria.txtBBuscarCategoria.Text);
                     _frmBuscarCategoria.lblBuscarCategoria_ShowInfo.Text = $"ID: {categoria.id}\nNombre: {categoria.nombre}\nPrecio Minimo: {categoria.precio_Minimo}";
                 }
                 else
@@ -31,7 +31,7 @@ namespace POOClase_WinForms.Controladores
             }
         }
 
-        private void btnBuscarCategoria_Salir_Click(object sender, EventArgs e)
+        private void btnBuscarCategoria_Salir_Click(object? sender, EventArgs? e)
         {
             _frmBuscarCategoria.Close();
         }

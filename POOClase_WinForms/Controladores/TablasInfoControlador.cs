@@ -41,6 +41,8 @@ namespace POOClase_WinForms.Controladores
             _frmTablasInfo.txtBTablasInfo_NombreElemento.Text = string.Empty;
             _frmTablasInfo.numupTablasInfo_De.Text = string.Empty;
             _frmTablasInfo.numupTablasInfo_Hasta.Text = string.Empty;
+            _frmTablasInfo.combxTablasInfo_Existencias_Condicion.SelectedItem = null;
+            _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text = string.Empty;
         }
         private void btnTablasInfo_Mostrar_Click (object? sender, EventArgs? e)
         {
