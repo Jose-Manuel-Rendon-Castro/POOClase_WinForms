@@ -22,23 +22,23 @@ namespace POOClase_WinForms.Controladores
                 (
                     string.IsNullOrEmpty(_frmAgregarProducto.txtBAgregarProducto_Nombre.Text) ||
                     string.IsNullOrEmpty(_frmAgregarProducto.txtBAgregarProducto_Precio.Text) ||
-                    string.IsNullOrEmpty(_frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                    string.IsNullOrEmpty(_frmAgregarProducto.combxCategoriasDisponibles.Text))
                 {
                     throw new EmptyFieldException();
                 }
 
-                if (CategoriaDAO.CheckCategoriaExistente(_frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                if (!CategoriaDAO.CheckCategoriaExistente(_frmAgregarProducto.combxCategoriasDisponibles.Text))
                 {
                     throw new Exception("Categoria inexistente");
                 }
-                if (CategoriaDAO.CheckIfHigherMinimumPrice(_frmAgregarProducto.txtBAgregarProducto_Precio.Text, _frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                if (!CategoriaDAO.CheckIfHigherMinimumPrice(_frmAgregarProducto.txtBAgregarProducto_Precio.Text, _frmAgregarProducto.combxCategoriasDisponibles.Text))
                 {
                     throw new Exception("Precio por debajo del precio mínimo de la categoría.");
                 }
                 AgregarProductoDAO.AgregarProducto(
                     _frmAgregarProducto.txtBAgregarProducto_Nombre.Text,
                     _frmAgregarProducto.txtBAgregarProducto_Precio.Text,
-                    _frmAgregarProducto.combxCategoriasDisponibles.SelectedText);
+                    _frmAgregarProducto.combxCategoriasDisponibles.Text);
 
                 _frmAgregarProducto.Close();
             }

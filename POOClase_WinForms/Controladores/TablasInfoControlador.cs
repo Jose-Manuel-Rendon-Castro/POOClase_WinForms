@@ -63,7 +63,9 @@ namespace POOClase_WinForms.Controladores
                     _frmTablasInfo.txtBTablasInfo_NombreElemento.Text,
                     _frmTablasInfo.txtBTablasInfo_NombreCategoria.Text,
                     _frmTablasInfo.numupTablasInfo_De.Text,
-                    _frmTablasInfo.numupTablasInfo_Hasta.Text
+                    _frmTablasInfo.numupTablasInfo_Hasta.Text,
+                    _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Text,
+                    _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text
                 );
                 if (_frmTablasInfo.dtgvTablasInfo_Tabla.RowCount == 0)
                 {
