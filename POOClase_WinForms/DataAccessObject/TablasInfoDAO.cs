@@ -6,12 +6,14 @@ namespace POOClase_WinForms.DataAccessObject
 {
     public class TablasInfoDAO : ConnectionString
     {
-        public static void MostrarTabla(DataGridView dataGridView, string nombreTabla, string id, string nombreElemento, string nombreCategoria, string precioDe, string precioHasta)
+        public static void MostrarTabla(DataGridView dataGridView, string nombreTabla, string id, string nombreElemento, string nombreCategoria,
+            string precioDe, string precioHasta, string existenciasCondicion, string existenciasValor)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                using (MySqlCommand selectCommand = new MySqlCommand(FiltradoDatos(nombreTabla, id, nombreElemento, nombreCategoria, precioDe, precioHasta), conn))
+                using (MySqlCommand selectCommand = new MySqlCommand(FiltradoDatos(nombreTabla, id, nombreElemento, nombreCategoria, precioDe, precioHasta,
+                    existenciasCondicion, existenciasValor), conn))
                 {
                     using (MySqlDataReader reader = selectCommand.ExecuteReader())
                     {
@@ -26,41 +28,33 @@ namespace POOClase_WinForms.DataAccessObject
 
         }
 
-        private static string FiltradoDatos(string nombreTabla, string id, string nombreElemento, string nombreCategoria, string precioDe, string precioHasta)
+        private static string FiltradoDatos(string nombreTabla, string id, string nombreElemento, string nombreCategoria, string precioDe, string precioHasta,
+            string existenciasCondicion, string existenciasValor)
         {
             string selectQuery = $"SELECT * FROM {nombreTabla}";
             List<string> condiciones = new List<string>();
 
-            if (!string.IsNullOrEmpty(id))
-            {
-                if (int.TryParse(id, out int ID))
-                {
-                    condiciones.Add($"ID = {ID}");
-                }
-                else { return selectQuery; }
-            }
-            if (!string.IsNullOrEmpty(nombreCategoria))
-            {
-                condiciones.Add($"Nombre_Categoria LIKE '%{nombreCategoria}%'");
-            }
-            if (!string.IsNullOrEmpty(nombreElemento))
-            {
-                condiciones.Add($"Nombre LIKE '%{nombreElemento}%'");
-            }
+            if (!string.IsNullOrEmpty(id)) { condiciones.Add($"ID = {id}"); }
+
+            if (!string.IsNullOrEmpty(nombreCategoria)) { condiciones.Add($"Nombre_Categoria LIKE '%{nombreCategoria}%'"); }
+
+            if (!string.IsNullOrEmpty(nombreElemento)) { condiciones.Add($"Nombre LIKE '%{nombreElemento}%'"); }
+
             if (!string.IsNullOrEmpty(precioDe) && !string.IsNullOrEmpty(precioHasta))
             {
-                if (decimal.TryParse(precioDe, out decimal numPrecioDe) && decimal.TryParse(precioHasta, out decimal numPrecioHasta))
+                if (nombreTabla != "categorias")
                 {
-                    if (nombreTabla != "categorias")
-                    {
-                        condiciones.Add($"Precio BETWEEN {numPrecioDe} AND {numPrecioHasta}");
-                    }
-                    else
-                    {
-                        condiciones.Add($"Precio_Minimo BETWEEN {numPrecioDe} AND {numPrecioHasta}");
-                    }
+                    condiciones.Add($"Precio BETWEEN {precioDe} AND {precioHasta}");
+                }
+                else
+                {
+                    condiciones.Add($"Precio_Minimo BETWEEN {precioDe}  AND  {precioHasta}");
                 }
             }
+
+            if (!string.IsNullOrEmpty(existenciasCondicion) && !string.IsNullOrEmpty(existenciasValor)) 
+                { condiciones.Add($"Existencias {existenciasCondicion} {existenciasValor}"); }
+
             if (condiciones.Count > 0)
             {
                 selectQuery += " WHERE " + String.Join(" AND ", condiciones);
