@@ -14,11 +14,11 @@ namespace POOClase_WinForms.Controladores
             _frmAgregarCategoria.btnAgregarCategoria_Salir.Click += btnAgregarCategoria_Salir_Click;
         }
 
-        private void btnAgregarCategoria_Agregar_Click(object sender, EventArgs e)
+        private void btnAgregarCategoria_Agregar_Click(object? sender, EventArgs? e)
         {
             AgregarCategoriaDAO.AgregarCategoria(_frmAgregarCategoria.txtBNombreCategoria.Text, _frmAgregarCategoria.txtBPrecioMinimo.Text);
         }
-        private void btnAgregarCategoria_Salir_Click(object sender, EventArgs e)
+        private void btnAgregarCategoria_Salir_Click(object? sender, EventArgs? e)
         {
             _frmAgregarCategoria.Close();
         }

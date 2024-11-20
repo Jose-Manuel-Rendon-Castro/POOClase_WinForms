@@ -1,6 +1,6 @@
 ﻿using POOClase_WinForms.AccessData;
 using POOClase_WinForms.DataAccessObject.ModelosDAO;
-using POOClase_WinForms.Modelos;
+using POOClase_WinForms.Exceptions;
 
 namespace POOClase_WinForms.Controladores
 {
@@ -16,8 +16,40 @@ namespace POOClase_WinForms.Controladores
         }
         private void btnAgregarProducto_Agregar_Click(object? sender, EventArgs? e)
         {
-            AgregarProductoDAO.AgregarPrducto(_frmAgregarProducto);
-            _frmAgregarProducto.Close();
+            try
+            {
+                if 
+                (
+                    string.IsNullOrEmpty(_frmAgregarProducto.txtBAgregarProducto_Nombre.Text) ||
+                    string.IsNullOrEmpty(_frmAgregarProducto.txtBAgregarProducto_Precio.Text) ||
+                    string.IsNullOrEmpty(_frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                {
+                    throw new EmptyFieldException();
+                }
+
+                if (CategoriaDAO.CheckCategoriaExistente(_frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                {
+                    throw new Exception("Categoria inexistente");
+                }
+                if (CategoriaDAO.CheckIfHigherMinimumPrice(_frmAgregarProducto.txtBAgregarProducto_Precio.Text, _frmAgregarProducto.combxCategoriasDisponibles.SelectedText))
+                {
+                    throw new Exception("Precio por debajo del precio mínimo de la categoría.");
+                }
+                AgregarProductoDAO.AgregarProducto(
+                    _frmAgregarProducto.txtBAgregarProducto_Nombre.Text,
+                    _frmAgregarProducto.txtBAgregarProducto_Precio.Text,
+                    _frmAgregarProducto.combxCategoriasDisponibles.SelectedText);
+
+                _frmAgregarProducto.Close();
+            }
+            catch (EmptyFieldException ex)
+            {
+                MessageBox.Show(ex.Message, "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void LlenarComboBoxCategorias()
         {
@@ -37,7 +69,7 @@ namespace POOClase_WinForms.Controladores
 
             if (!string.IsNullOrEmpty(categoriaSeleccionada))
             {
-                decimal precioMinimo = AgregarProductoDAO.ObtenerPrecioMinimoPorCategoria(categoriaSeleccionada);
+                decimal precioMinimo = CategoriaDAO.ObtenerPrecioMinimoPorCategoria(categoriaSeleccionada);
                 _frmAgregarProducto.lblAgregarProducto_PrecioMinimo.Text = $"Precio mínimo: ${precioMinimo:F2}";
             }
             else
