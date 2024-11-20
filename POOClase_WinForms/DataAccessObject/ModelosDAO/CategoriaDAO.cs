@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using POOClase_WinForms.AccessData;
+using POOClase_WinForms.Vistas;
 
 namespace POOClase_WinForms.DataAccessObject.ModelosDAO
 {
@@ -25,6 +26,23 @@ namespace POOClase_WinForms.DataAccessObject.ModelosDAO
                 }
             }
             return categorias;
+        }
+        public static bool CheckCategoriaExistente(string nombre)
+        {
+            string selectQuery = "SELECT COUNT(*) FROM categoria WHERE nombre=@nombre";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn))
+                {
+                    selectCommand.Parameters.AddWithValue("@nombre", nombre.Trim());
+                    int count = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                    if (count > 0) return true;
+                    else return false;
+                }
+            }
         }
     }
 }
