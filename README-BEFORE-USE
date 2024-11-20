@@ -1,0 +1,205 @@
+Para usar el programa SIN PROBLEMAS, copiar y pegar en tu Entorno de MySql, ya se en terminal de comandos o en Workbench, el script que se encuentra entre los separadores de signo =.
+O bien, usar el script que viene junto con el proyecto que se localiza en la carpeta principal.
+
+Con el script ya ejecutado, ya tendrás la base de datos, tablas y vistas, así como su contenido. 
+Después de haber realizado esto, en su IDE de preferencia, dirijase al archivo ConnectionString.cs. 
+Al string de conexión, cambiar los valores de Uid y Pwd a los que utilize para conectarse con MySql.
+
+LISTO. Ya puede usar el proyecto y hacer pruebas en el. Al ejecutar el script, se creó un usuario con las credenciales "admin" como username y "123" como contraseña. :D 
+
+=================================================================================================================
+CREATE DATABASE tienda;
+USE tienda;
+
+CREATE TABLE categoria (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(20) NOT NULL,
+    precio_minimo DECIMAL NOT NULL
+);
+
+CREATE TABLE producto (
+	id INT PRIMARY KEY,
+    categoria INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    precio DECIMAL NOT NULL,
+    codigo_barra INT GENERATED ALWAYS AS (CAST(CONCAT(categoria, id) AS UNSIGNED)) STORED,
+    existencias INT,
+    FOREIGN KEY (categoria) REFERENCES categoria(id)
+);
+
+CREATE TABLE usuarios (
+	id INT PRIMARY KEY,
+    nombre_usuario VARCHAR(20),
+    contraseña VARCHAR(15),
+    nombre VARCHAR(25),
+    apellido VARCHAR(25),
+    email varchar(50)
+);
+
+CREATE OR REPLACE VIEW categorias AS
+SELECT
+	categoria.id AS ID,
+    categoria.nombre AS Nombre,
+    categoria.precio_minimo AS Precio_Minimo
+FROM categoria;
+
+CREATE OR REPLACE VIEW productos AS
+SELECT
+	producto.id AS ID,
+    producto.categoria AS ID_Categoria,
+    categoria.nombre AS Nombre_Categoria,
+    producto.nombre AS Nombre,
+    producto.precio AS Precio,
+    producto.codigo_barra AS Codigo_De_Barras,
+    producto.existencias AS Existencias
+FROM producto 
+JOIN categoria ON producto.categoria = categoria.id;
+
+INSERT INTO usuarios (id, nombre_usuario, contraseña, nombre, apellido, email) VALUES 
+(1, 'admin', '123', 'Jose Manuel', 'Rendon Castro', 'correoEjemplo@gmail.com');
+
+INSERT INTO categoria (nombre, precio_minimo) VALUES 
+('Refresco', 20),
+('Galletas', 25),
+('Sabritas', 20),
+('a', 0),
+('Verduras', 0),
+('Jugetes', 50),
+('Frutas', 5),
+('Lacteos', 10),
+('Electronicos', 200),
+('Ferreteria', 1),
+('Pan', 15);
+DELETE FROM categoria WHERE id = 4;
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(1, 2, 'Galletas de Chispas de Chocolate', 25.50, 100),
+(2, 2,'Galletas de Avena y Pasas', 26.00, 80),
+(3, 2,'Galletas de Mantequilla', 30.00, 50),
+(4, 2,'Galletas de Jengibre', 25.50, 60),
+(5, 2,'Galletas de Almendra', 35.00, 40),
+(6, 2,'Galletas Oreo', 28.00, 200),
+(7, 2,'Galletas de Nuez', 33.00, 70),
+(8, 2,'Galletas de Coco', 26.00, 90),
+(9, 2,'Galletas Rellenas de Fresa', 29.00, 110),
+(10, 2,'Galletas de Chocolate Blanco', 32.50, 55);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(14, 1,'Pepsi 500ml', 21.50, 140),
+(15, 1,'Sprite 500ml', 20.00, 130),
+(16, 1,'Fanta Naranja 500ml', 23.00, 120),
+(17, 1,'7UP 500ml', 24.50, 100),
+(18, 1,'Jarritos de Tamarindo 600ml', 25.00, 80),
+(19, 1,'Manzanita Sol 500ml', 20.50, 110),
+(20, 1,'Squirt 500ml', 22.50, 90);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(21, 3, 'Ruffles Queso', 28.00, 120),
+(22, 3, 'Chetos Torciditos', 22.50, 100),
+(23, 3, 'Doritos Nacho', 27.00, 130),
+(24, 3, 'Tostitos Salsa Verde', 30.00, 90),
+(25, 3, 'Sabritas Adobadas', 24.50, 110),
+(26, 3, 'Doritos Flamin Hot', 29.00, 95),
+(27, 3, 'Chetos Bolita', 23.50, 140),
+(28, 3, 'Ruffles Crema y Especias', 26.00, 85),
+(29, 3, 'Tostitos Xtra Flamin Hot', 31.00, 70),
+(30, 3, 'Sabritas Clásicas', 25.00, 150);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(31, 5, 'Zanahorias', 15.00, 200),
+(32, 5, 'Tomates', 12.50, 180),
+(33, 5, 'Cebollas', 10.00, 150),
+(34, 5, 'Lechuga', 8.00, 100),
+(35, 5, 'Pimientos Verdes', 18.00, 90),
+(36, 5, 'Calabacitas', 14.00, 110),
+(37, 5, 'Pepinos', 9.00, 120),
+(38, 5, 'Papas', 20.00, 170),
+(39, 5, 'Brócoli', 16.00, 80),
+(40, 5, 'Espinacas', 13.00, 95);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(41, 6, 'Auto de Juguete', 55.00, 100),
+(42, 6, 'Muñeca', 60.00, 80),
+(43, 6, 'Lego Básico', 120.00, 50),
+(44, 6, 'Pelota de Fútbol', 70.00, 90),
+(45, 6, 'Juego de Mesa', 150.00, 40),
+(46, 6, 'Rompecabezas', 75.00, 60),
+(47, 6, 'Avión de Juguete', 65.00, 70),
+(48, 6, 'Figuras de Acción', 85.00, 55),
+(49, 6, 'Juguete de Cocina', 95.00, 45),
+(50, 6, 'Set de Bloques', 110.00, 35);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(51, 7, 'Manzanas', 15.00, 120),
+(52, 7, 'Plátanos', 10.00, 150),
+(53, 7, 'Naranjas', 12.00, 140),
+(54, 7, 'Fresas', 18.00, 90),
+(55, 7, 'Uvas', 20.00, 80),
+(56, 7, 'Peras', 14.00, 110),
+(57, 7, 'Sandía', 25.00, 60),
+(58, 7, 'Melón', 22.00, 70),
+(59, 7, 'Kiwi', 30.00, 50),
+(60, 7, 'Papaya', 13.00, 100);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(61, 8, 'Leche Entera', 18.00, 200),
+(62, 8, 'Yogurt Natural', 25.00, 150),
+(63, 8, 'Queso Manchego', 40.00, 100),
+(64, 8, 'Mantequilla', 35.00, 80),
+(65, 8, 'Crema', 30.00, 120),
+(66, 8, 'Leche Deslactosada', 20.00, 170),
+(67, 8, 'Yogurt de Fresa', 28.00, 140),
+(68, 8, 'Queso Panela', 45.00, 90),
+(69, 8, 'Queso Oaxaca', 50.00, 60),
+(70, 8, 'Leche en Polvo', 32.00, 110);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(61, 8, 'Leche Entera', 18.00, 200),
+(62, 8, 'Yogurt Natural', 25.00, 150),
+(63, 8, 'Queso Manchego', 40.00, 100),
+(64, 8, 'Mantequilla', 35.00, 80),
+(65, 8, 'Crema', 30.00, 120),
+(66, 8, 'Leche Deslactosada', 20.00, 170),
+(67, 8, 'Yogurt de Fresa', 28.00, 140),
+(68, 8, 'Queso Panela', 45.00, 90),
+(69, 8, 'Queso Oaxaca', 50.00, 60),
+(70, 8, 'Leche en Polvo', 32.00, 110);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(71, 9, 'Smartphone', 15000.00, 50),
+(72, 9, 'Laptop', 30000.00, 30),
+(73, 9, 'Monitor', 8000.00, 40),
+(74, 9, 'Mouse inalámbrico', 800.00, 200),
+(75, 9, 'Teclado mecánico', 2500.00, 100),
+(76, 9, 'Audífonos Bluetooth', 1200.00, 150),
+(77, 9, 'Smartwatch', 3500.00, 70),
+(78, 9, 'Cámara Digital', 18000.00, 20),
+(79, 9, 'Consola de videojuegos', 12000.00, 25),
+(80, 9, 'Bocina Portátil', 3000.00, 60);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(81, 10, 'Martillo', 150.00, 100),
+(82, 10, 'Desarmador Plano', 50.00, 200),
+(83, 10, 'Llave Inglesa', 120.00, 80),
+(84, 10, 'Clavos 1 pulgada (paquete)', 20.00, 500),
+(85, 10, 'Cinta Métrica', 75.00, 150),
+(86, 10, 'Nivel de Burbuja', 90.00, 70),
+(87, 10, 'Taladro', 1200.00, 40),
+(88, 10, 'Serrucho', 180.00, 60),
+(89, 10, 'Brocas (juego de 5)', 300.00, 50),
+(90, 10, 'Cinta Aislante', 25.00, 400);
+
+INSERT INTO producto (id, categoria, nombre, precio, existencias) VALUES
+(91, 11, 'Pan Baguette', 18.00, 120),
+(92, 11, 'Pan de Molde', 20.00, 150),
+(93, 11, 'Pan de Hot Dog', 15.00, 100),
+(94, 11, 'Pan de Hamburguesa', 17.00, 80),
+(95, 11, 'Pan Francés', 22.00, 90),
+(96, 11, 'Pan Integral', 25.00, 130),
+(97, 11, 'Pan de Ajo', 30.00, 60),
+(98, 11, 'Pan de Leche', 21.00, 110),
+(99, 11, 'Pan de Chocolate', 28.00, 75),
+(100, 11, 'Pan de Cereal', 23.00, 85);
+=================================================================================================================
+
+
