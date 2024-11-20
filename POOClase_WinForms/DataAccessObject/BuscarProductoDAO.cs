@@ -6,11 +6,11 @@ namespace POOClase_WinForms.AccessData
 {
     public class BuscarProductoDAO : ConnectionString
     {
-        public static Producto? BuscarProdutoInfo(FrmBuscarProducto frmBuscarProducto)
+        public static Producto? BuscarProdutoInfo(string id)
         {
             string selectQuery = "SELECT * FROM producto WHERE id = @id";
 
-            if(!int.TryParse(frmBuscarProducto.txtBBuscar.Text.Trim(), out int input_id))
+            if(!int.TryParse(id.Trim(), out int input_id))
             {
                 return null;
             }

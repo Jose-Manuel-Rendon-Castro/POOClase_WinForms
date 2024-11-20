@@ -316,7 +316,6 @@
         private Label label5;
         public NumericUpDown numupTablasInfo_De;
         public NumericUpDown numupTablasInfo_Hasta;
-        private NumericUpDown numericUpDown2;
         public Button btnTablasInfo_Limpiar;
         private Label label6;
         public Label label7;

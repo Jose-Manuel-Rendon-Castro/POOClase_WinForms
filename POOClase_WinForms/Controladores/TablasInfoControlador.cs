@@ -78,7 +78,7 @@ namespace POOClase_WinForms.Controladores
             {
                 MessageBox.Show(ex.Message);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("El valor máximo del rango de precio no puede ser menor que el valor mínimo. Por favor, ajuste los valores e intentenuevamente", 
                     "Error en rango de precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
