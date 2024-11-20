@@ -26,11 +26,18 @@ namespace POOClase_WinForms.Controladores
             if (_frmTablasInfo.combxTablasInfo_NombreTabla.SelectedItem?.ToString() == "categorias")
             {
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Text = string.Empty;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.SelectedItem = null;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Text = string.Empty;
+
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Enabled = false;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Enabled = false;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Enabled = false;
             }
             else
             {
                 _frmTablasInfo.txtBTablasInfo_NombreCategoria.Enabled = true;
+                _frmTablasInfo.combxTablasInfo_Existencias_Condicion.Enabled = true;
+                _frmTablasInfo.txtBTablasInfo_Existencias_Valor.Enabled = true;
             }
         }
         private void btnTablasInfo_Limpiar_Click (object? sender, EventArgs? e)
